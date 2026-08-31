@@ -181,3 +181,10 @@ export const INDUSTRY_OPTIONS = INDUSTRIES.map((i) => i.name);
 export const INTEREST_OPTIONS = [...SOLUTIONS.map((s) => s.title), "General Inquiry"];
 
 export const CONTACT_PLACEHOLDER_NOTE = "Official MITS contact details will be published here once provided.";
+
+// Add official technology partners here once announced. Drop logo files into
+// /public/partners/ and reference them as "/partners/<filename>". Partner cards
+// render automatically and replace the reserved placeholder slots.
+export const PARTNERS = [
+    // { name: "Partner Name", logo: "/partners/example.svg", description: "What the partnership delivers.", url: "https://partner.example" },
+];

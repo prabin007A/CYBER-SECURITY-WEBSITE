@@ -6,6 +6,8 @@ import Lenis from "lenis";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
@@ -43,6 +45,15 @@ const useSmoothScroll = () => {
             window.__lenis = null;
         };
     }, []);
+};
+
+const AnalyticsTracker = () => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        initAnalytics();
+        trackPageView(pathname);
+    }, [pathname]);
+    return null;
 };
 
 const ScrollToTop = () => {
@@ -96,9 +107,11 @@ function App() {
         <MotionConfig reducedMotion="user">
             <BrowserRouter>
                 <ScrollToTop />
+                <AnalyticsTracker />
                 <Header />
                 <AnimatedRoutes />
                 <Footer />
+                <CookieConsent />
                 <Toaster position="top-right" richColors />
             </BrowserRouter>
         </MotionConfig>
