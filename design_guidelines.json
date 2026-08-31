@@ -1,0 +1,109 @@
+{
+  "design_concept": {
+    "theme": "Modern Enterprise IT & Cybersecurity",
+    "vibe": "Professional, trustworthy, sophisticated, confident, enterprise-grade",
+    "mode": "Light mode primary with bold, deep navy dark sections for contrast and impact",
+    "forbidden_elements": [
+      "hacker imagery",
+      "matrix effects",
+      "neon overloads",
+      "gaming aesthetics",
+      "dashboard/admin UI patterns on public pages",
+      "pure stock photos of people pointing at screens",
+      "pure black (#000000)"
+    ]
+  },
+  "typography": {
+    "strategy": "The 'Old Money Tech' variant adapted for Enterprise B2B. Authoritative headings, highly legible sterile body.",
+    "headings": {
+      "family": "Outfit, sans-serif",
+      "scale": "text-4xl sm:text-5xl lg:text-6xl+",
+      "weight": "font-bold to font-black",
+      "tracking": "tracking-tight",
+      "usage": "Use for all H1, H2, H3. Never use Inter for headings."
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "scale": "text-base (mobile: text-sm)",
+      "weight": "font-normal",
+      "leading": "leading-relaxed"
+    },
+    "accents": {
+      "family": "IBM Plex Mono, monospace",
+      "usage": "Use for overlines, step numbers (e.g., '01', '02'), and technical metadata. Uppercase + tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "primary": {
+      "deep_navy": "#0B1120",
+      "slate_navy": "#1E293B",
+      "cool_gray": "#F8FAFC"
+    },
+    "accents": {
+      "cyan": "#06B6D4",
+      "blue": "#2563EB",
+      "indigo": "#4F46E5"
+    },
+    "text": {
+      "light_bg": "#0F172A",
+      "light_bg_muted": "#475569",
+      "dark_bg": "#F8FAFC",
+      "dark_bg_muted": "#94A3B8"
+    },
+    "borders": {
+      "light": "rgba(15, 23, 42, 0.1)",
+      "dark": "rgba(248, 250, 252, 0.1)"
+    }
+  },
+  "layouts": {
+    "spacing": "Generous. Use Tailwind scale generously (p-8, p-12, p-16, p-24) to create a premium, uncrowded feel.",
+    "grids": "Bento Grid Protocol (Mode A) for Industries (8 cards) and Solutions (6 cards). Asymmetrical tension, mixing spans (e.g., col-span-2, col-span-1).",
+    "header": "Sticky transparent-to-solid transition. Initial state transparent (ensure dark text or light text matches hero bg contrast), becomes backdrop-blur-xl bg-white/90 (or solid deep navy) on scroll. Includes mobile drawer.",
+    "hero": "Kinetic layout. No standard split screen. Masked line-by-line headline reveal. Background uses SVG/CSS abstract network/node visuals.",
+    "footer": "Massive py-20, grid columns for navigation, prominent bottom CTA band, dark theme preferred for footer to ground the site."
+  },
+  "motion": {
+    "scrolling": "MANDATORY: Use @studio-freight/react-lenis for premium smooth momentum scrolling.",
+    "reveals": "Framer Motion. Viewport entry: smooth fade-up/slide-in (y: 20 to 0, opacity: 0 to 1). Duration: 0.6s to 0.8s. Staggered children for grids.",
+    "micro_interactions": "Cards: Subtle lift (-translate-y-1) and shadow-xl increase on hover. Buttons: Elegant width-expanding lines or smooth background fill transitions.",
+    "hero_animation": "Masked text reveal (overflow-hidden on text wrapper, motion.span slides up). Slow, non-distracting movement on SVG background nodes.",
+    "timeline": "6-step animated horizontal/vertical process timeline. Use Framer Motion useScroll/useTransform to draw the line or fill nodes as user scrolls.",
+    "constraints": "Keep animations fast, subtle. No flashing, bouncing, or layout shift. Respect prefers-reduced-motion."
+  },
+  "visual_enhancers": {
+    "media_strategy": "Zero stock photos. Use custom Framer Motion + SVG/CSS abstract visuals (network nodes, shields, structural grids, glowing connection lines).",
+    "parallax": "Subtle parallax on background SVG elements (use Framer Motion useScroll hook).",
+    "marquee": "Slow editorial marquee for 'Technology That Protects. Solutions That Perform.' (or similar brand slogans). Large, outline text (text-transparent stroke-current).",
+    "numbers": "Use massive, low-opacity typography for section numbers (e.g., '01', '02') in the background or side margins to create an editorial feel."
+  },
+  "pages_and_routing": {
+    "Home": "Kinetic Hero, Who We Protect (8 bento cards), Our Solutions (6 bento cards), Why Cyber Security Matters, 6-Step Timeline, Final CTA band.",
+    "About": "Technology That Protects, We Are, Mission/Vision/Values, Why Choose Us, Methodology.",
+    "Cyber Security Services": "List/Grid of deep technical services.",
+    "Solutions": "Overview + routing to 6 detail pages.",
+    "Industries": "8 detailed industry verticals.",
+    "Technology Partners": "Placeholder grid layout. Do NOT use fake logos; use sleek geometric placeholder blocks or stylized text if logos not provided.",
+    "Blog": "Search input, category pills (filters), pagination logic, article card layout, rich text article template.",
+    "Contact": "Full consultation form (Shadcn Form) connected to FastAPI backend, with validation and success states (Sonner toast)."
+  },
+  "components": {
+    "forms_and_interactive": "Shadcn UI (Input, Textarea, Select, Dialog, Sheet, Accordion). Heavily customized to remove default Vercel-look. Square or lightly rounded edges.",
+    "cards": "Custom HTML/Tailwind. 'Crystal Glass' for overlapping elements, 'Flat/Crisp' for bento grids with 1px borders.",
+    "icons": "Lucide-React or @phosphor-icons/react. Professional, sharp weights."
+  },
+  "accessibility": {
+    "contrast": "Ensure APCA/WCAG AA compliance. Use text-shadow on text overlapping abstract backgrounds if contrast dips.",
+    "motion": "Wrap heavy animations in prefers-reduced-motion media queries or Framer Motion settings.",
+    "data_testid": "MANDATORY: All interactive elements (buttons, links, form fields, navigation items, tabs) MUST have a `data-testid` attribute (e.g., `data-testid=\"contact-submit-button\"`)."
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "DO NOT INVENT COMPANY DATA. Use generic but professional placeholder copy (e.g., 'Delivering scalable cybersecurity solutions for enterprise infrastructure') if exact text isn't provided.",
+    "Do not center-align body text or massive blocks. Use asymmetrical layouts and optical left-alignment to create tension and professionalism.",
+    "Create depth through layering, not just shadows. Use 1px borders (border-border/40) on dark sections to define grids.",
+    "You tend to output generic SaaS layouts. Break this habit by incorporating Awwwards-style typography sizing (massive headings with tight tracking, balanced by generous negative space).",
+    "Implement the 6-step 'Our Approach' timeline meticulously. It should feel like a premium guided experience, lighting up each step (Discover, Assess, Protect, Monitor, Respond, Improve) via scroll.",
+    "Use `sonner` for toast notifications (e.g., for contact form success).",
+    "No AI emojis in the UI. Keep it strictly enterprise professional.",
+    "For the transparent-to-solid header, ensure a clean transition logic (e.g., conditionally applying classes based on window scroll Y position)."
+  ]
+}
