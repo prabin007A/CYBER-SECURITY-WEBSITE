@@ -4,7 +4,6 @@ import { Play } from "lucide-react";
 import Seo from "../components/Seo";
 import NetworkVisual, { ShieldMark } from "../components/NetworkVisual";
 import CtaButton from "../components/CtaButton";
-import Marquee from "../components/Marquee";
 import { SectionHeader, Reveal, Stagger } from "../components/Reveal";
 import { WordReveal } from "../components/Motion";
 import { SolutionCard, IndustryCard } from "../components/Cards";
@@ -150,7 +149,6 @@ export default function Home() {
                 description="Advanced cybersecurity and scalable IT solutions designed to protect businesses, secure data, and enable digital transformation."
             />
             <Hero />
-            <Marquee items={["Technology That Protects", "Solutions That Perform", "Secure Today", "Prepare for Tomorrow"]} />
 
             <section data-testid="who-we-protect" className="relative overflow-hidden bg-navy-900 py-24 lg:py-32">
                 <NetworkVisual density={10} seed={13} className="absolute inset-0 h-full w-full opacity-15" />

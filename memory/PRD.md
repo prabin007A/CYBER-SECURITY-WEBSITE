@@ -1,4 +1,6 @@
-# MITS Corporate Website — PRD
+# MITS
+
+> Update (June 2026): Marquee ticker removed from Home page. Contact notification email set to prabinraj48@gmail.com (verified sending via Resend, HTTP 202). Corporate Website — PRD
 
 ## Original Problem Statement
 Build a modern, premium corporate website for MITS — an IT solutions and cybersecurity company. Light corporate design with deep navy sections, cyan/blue accents, premium subtle animations (framer-motion + lenis), custom SVG/CSS abstract visuals (no stock/hacker imagery), full page set (Home, About, Cyber Security Services, Solutions + 6 detail pages, Industries, Technology Partners placeholder, Blog with search/filters/pagination, Contact with DB-backed form), strict "do not invent company data" rule, exact approved headings preserved, removed sections (Testimonials, Latest Blogs on Home, Pricing, Our Team) excluded.
