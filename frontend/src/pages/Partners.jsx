@@ -10,11 +10,17 @@ const SLOTS = Array.from({ length: 6 }, (_, i) => i + 1);
 const PartnerCard = ({ partner }) => {
     const inner = (
         <>
-            <div className="flex h-20 items-center justify-center border-b border-navy-900/10 bg-slate-50 px-8">
-                <img src={partner.logo} alt={`${partner.name} logo`} loading="lazy" className="max-h-12 w-auto object-contain" />
+            <div className="flex h-24 items-center justify-center border-b border-navy-900/10 bg-navy-900 px-6 transition-colors duration-300 group-hover:bg-navy-800">
+                {partner.logo ? (
+                    <img src={partner.logo} alt={`${partner.name} logo`} loading="lazy" className="max-h-12 w-auto object-contain" />
+                ) : (
+                    <span className="text-center font-display text-xl font-extrabold tracking-tight text-slate-200 transition-colors duration-300 group-hover:text-cyan-300">
+                        {partner.name}
+                    </span>
+                )}
             </div>
             <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900">{partner.name}</h3>
+                {partner.logo && <h3 className="font-display text-lg font-bold text-navy-900">{partner.name}</h3>}
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{partner.description}</p>
                 {partner.url && (
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
@@ -67,7 +73,7 @@ export default function Partners() {
                         }
                     />
                     {hasPartners ? (
-                        <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
                             {PARTNERS.map((partner) => (
                                 <PartnerCard key={partner.name} partner={partner} />
                             ))}

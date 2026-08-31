@@ -21,7 +21,8 @@ Exact headings preserved; 6 solutions; 8 industries; 6-step approach timeline; 4
 - Kinetic hero (masked line reveal, parallax SVG network, floating shield), editorial marquee, scroll-linked timeline animations
 - Contact form: client + server validation, success/error states, rate limiting, honeypot, DB storage
 - Email notifications (2026-07): Emergent-managed Resend — every consultation submission triggers an instant branded notification email to the team inbox (env: CONTACT_NOTIFY_EMAIL, currently test address delivered@resend.dev pending real inbox), Reply-To set to the lead's email, non-blocking send, guardrail gate applied
-- Partner system (2026-07): config-driven PARTNERS array in content.js + /public/partners/ drop-in folder; real logo cards render automatically once entries exist, elegant reserved slots until then
+- Partner system (2026-07): config-driven PARTNERS array in content.js + /public/partners/ drop-in folder; 10 official partners listed (Microsoft, Cisco, Fortinet, Check Point, CrowdStrike, ManageEngine, Tenable, Palo Alto Networks, Infraon, Sangfor) as navy wordmark cards in a 5x2 grid; logo files upgrade cards automatically when dropped in
+- Motion system (2026-07): global scroll progress bar, hero mouse parallax (shield + glows), radar sweep behind shield, animated gradient headline, scroll hint, word-by-word quote reveal with drawing accent line, 3D tilt on solution/industry cards; all gated by reduced-motion settings
 - Cookie consent (2026-07): preferences banner (Accept All / Reject All / Customize with analytics toggle), persisted choice, linked to Privacy Policy
 - Analytics (2026-07): env-driven GA4 architecture (REACT_APP_GA_MEASUREMENT_ID), consent-gated loading, anonymized IPs, SPA pageview tracking on route change; no-op until a measurement ID is provided
 - Blog: search, category filters, pagination, featured article, article template with related posts

@@ -139,13 +139,40 @@
     animation: shimmer 1.6s linear infinite;
 }
 
+@keyframes gradient-pan {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+.gradient-text-animated {
+    background-size: 200% auto;
+    animation: gradient-pan 6s ease-in-out infinite;
+}
+
+@keyframes hint-bob {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+    50% { transform: scaleY(1); opacity: 1; }
+}
+.hint-bob {
+    transform-origin: top;
+    animation: hint-bob 2.2s ease-in-out infinite;
+}
+
+.radar-sweep {
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(6, 182, 212, 0.16) 55deg, transparent 110deg);
+    border-radius: 9999px;
+    animation: spin-slow 7s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .marquee-track,
     .float-soft,
     .node-pulse,
     .dash-flow,
     .glow-drift,
-    .spin-slow {
+    .spin-slow,
+    .gradient-text-animated,
+    .hint-bob,
+    .radar-sweep {
         animation: none !important;
     }
     html {

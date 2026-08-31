@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { Play } from "lucide-react";
 import Seo from "../components/Seo";
 import NetworkVisual, { ShieldMark } from "../components/NetworkVisual";
 import CtaButton from "../components/CtaButton";
 import Marquee from "../components/Marquee";
 import { SectionHeader, Reveal, Stagger } from "../components/Reveal";
+import { WordReveal } from "../components/Motion";
 import { SolutionCard, IndustryCard } from "../components/Cards";
 import ProcessTimeline from "../components/ProcessTimeline";
 import CTABand from "../components/CTABand";
@@ -31,23 +32,43 @@ function Hero() {
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
     const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
     const shieldY = useTransform(scrollYProgress, [0, 1], ["0%", "38%"]);
+    const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+    const mx = useMotionValue(0);
+    const my = useMotionValue(0);
+    const smx = useSpring(mx, { stiffness: 40, damping: 18 });
+    const smy = useSpring(my, { stiffness: 40, damping: 18 });
+    const shieldMX = useTransform(smx, (v) => v * 34);
+    const shieldMY = useTransform(smy, (v) => v * 22);
+    const glowMX = useTransform(smx, (v) => v * -52);
+    const glowMY = useTransform(smy, (v) => v * -36);
+
+    const onMouseMove = (e) => {
+        mx.set(e.clientX / window.innerWidth - 0.5);
+        my.set(e.clientY / window.innerHeight - 0.5);
+    };
 
     return (
-        <section ref={ref} data-testid="home-hero" className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-900 pt-24">
+        <section ref={ref} data-testid="home-hero" onMouseMove={onMouseMove} className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-900 pt-24">
             <motion.div style={{ y: bgY }} className="absolute inset-0" aria-hidden="true">
                 <NetworkVisual density={22} seed={7} className="h-full w-full opacity-40" />
             </motion.div>
-            <div className="glow-drift absolute right-[8%] top-[18%] h-96 w-96 rounded-full bg-blue-600/15 blur-3xl" aria-hidden="true" />
-            <div className="glow-drift absolute bottom-[8%] left-[4%] h-80 w-80 rounded-full bg-cyan-500/12 blur-3xl" style={{ animationDelay: "6s" }} aria-hidden="true" />
+            <motion.div style={{ x: glowMX, y: glowMY }} className="absolute inset-0" aria-hidden="true">
+                <div className="glow-drift absolute right-[8%] top-[18%] h-96 w-96 rounded-full bg-blue-600/15 blur-3xl" />
+                <div className="glow-drift absolute bottom-[8%] left-[4%] h-80 w-80 rounded-full bg-cyan-500/12 blur-3xl" style={{ animationDelay: "6s" }} />
+            </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/60" aria-hidden="true" />
 
-            <motion.div style={{ y: shieldY }} className="pointer-events-none absolute right-[6%] top-1/2 hidden w-[380px] -translate-y-1/2 lg:block xl:w-[440px]" aria-hidden="true">
-                <div className="float-soft">
-                    <ShieldMark className="w-full opacity-90" />
-                </div>
+            <motion.div style={{ y: shieldY, opacity: fade }} className="pointer-events-none absolute right-[6%] top-1/2 hidden w-[380px] -translate-y-1/2 lg:block xl:w-[440px]" aria-hidden="true">
+                <motion.div style={{ x: shieldMX, y: shieldMY }} className="relative">
+                    <div className="radar-sweep absolute -inset-10" />
+                    <div className="float-soft relative">
+                        <ShieldMark className="w-full opacity-90" />
+                    </div>
+                </motion.div>
             </motion.div>
 
-            <div className="container-x relative z-10 py-20">
+            <motion.div style={{ opacity: fade }} className="container-x relative z-10 w-full py-20">
                 <motion.p
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -60,7 +81,7 @@ function Hero() {
                 <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-7xl" data-testid="hero-headline">
                     <HeadlineLine delay={0.25}>Beyond Defense.</HeadlineLine>
                     <HeadlineLine delay={0.4}>
-                        <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Ahead of Threats</span>
+                        <span className="gradient-text-animated bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Ahead of Threats</span>
                     </HeadlineLine>
                 </h1>
                 <motion.p
@@ -91,7 +112,18 @@ function Hero() {
                         Watch Introduction Video
                     </button>
                 </motion.div>
-            </div>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6, duration: 0.8 }}
+                className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2.5"
+                aria-hidden="true"
+            >
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500">Scroll</span>
+                <span className="hint-bob block h-8 w-px bg-gradient-to-b from-cyan-400 to-transparent" />
+            </motion.div>
 
             <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
                 <DialogContent data-testid="intro-video-modal" className="border-navy-800 bg-navy-900 text-slate-200 sm:max-w-lg">
@@ -168,9 +200,20 @@ export default function Home() {
                         <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl lg:text-5xl">
                             Why Cyber Security Matters
                         </h2>
-                        <p className="mt-7 border-l-2 border-cyan-500 pl-6 font-display text-xl font-medium leading-relaxed text-navy-800 sm:text-2xl">
-                            Cyber threats are evolving rapidly. Proactive prevention is always more effective and cost-efficient than recovery
-                        </p>
+                        <div className="relative mt-7 pl-6">
+                            <motion.span
+                                className="absolute left-0 top-0 h-full w-0.5 origin-top bg-cyan-500"
+                                initial={{ scaleY: 0 }}
+                                whileInView={{ scaleY: 1 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                                aria-hidden="true"
+                            />
+                            <WordReveal
+                                text="Cyber threats are evolving rapidly. Proactive prevention is always more effective and cost-efficient than recovery"
+                                className="font-display text-xl font-medium leading-relaxed text-navy-800 sm:text-2xl"
+                            />
+                        </div>
                         <p className="mt-6 text-base leading-relaxed text-slate-600">
                             Security is no longer an IT checkbox — it is a business strategy. Organizations that invest in proactive protection operate with greater confidence, earn deeper trust, and move faster than those forced to react.
                         </p>

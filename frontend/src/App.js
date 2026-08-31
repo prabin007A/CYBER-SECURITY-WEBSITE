@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import { ScrollProgress } from "@/components/Motion";
 import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 const Home = lazy(() => import("@/pages/Home"));
@@ -108,6 +109,7 @@ function App() {
             <BrowserRouter>
                 <ScrollToTop />
                 <AnalyticsTracker />
+                <ScrollProgress />
                 <Header />
                 <AnimatedRoutes />
                 <Footer />
