@@ -186,5 +186,14 @@ export const CONTACT_PLACEHOLDER_NOTE = "Official MITS contact details will be p
 // /public/partners/ and reference them as "/partners/<filename>". Partner cards
 // render automatically and replace the reserved placeholder slots.
 export const PARTNERS = [
-    // { name: "Partner Name", logo: "/partners/example.svg", description: "What the partnership delivers.", url: "https://partner.example" },
+    { name: "Microsoft", description: "Cloud, productivity, and security technologies powering modern enterprise environments." },
+    { name: "Cisco", description: "Networking, infrastructure, and security technologies for connected organizations." },
+    { name: "Fortinet", description: "Integrated network security and threat protection platforms." },
+    { name: "Check Point", description: "Advanced threat prevention and network security solutions." },
+    { name: "CrowdStrike", description: "Endpoint protection, threat intelligence, and incident response technologies." },
+    { name: "ManageEngine", description: "IT management, monitoring, and operations software." },
+    { name: "Tenable", description: "Vulnerability management and cyber exposure solutions." },
+    { name: "Palo Alto Networks", description: "Next-generation firewall and cloud-delivered security platforms." },
+    { name: "Infraon", description: "IT infrastructure monitoring and operations management solutions." },
+    { name: "Sangfor", description: "Cloud computing and network security technologies." },
 ];
