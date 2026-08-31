@@ -28,8 +28,8 @@ export default function Industries() {
                         dark
                     />
                     <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                        {INDUSTRIES.map((industry) => (
-                            <IndustryCard key={industry.name} industry={industry} />
+                        {INDUSTRIES.map((industry, i) => (
+                            <IndustryCard key={industry.name} industry={industry} index={i} />
                         ))}
                     </Stagger>
                 </div>

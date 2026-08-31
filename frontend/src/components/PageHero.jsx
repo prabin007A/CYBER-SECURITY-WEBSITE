@@ -7,6 +7,8 @@ export default function PageHero({ overline, title, description, children, seed 
             <NetworkVisual density={16} seed={seed} className="absolute inset-0 h-full w-full opacity-25" />
             <div className="glow-drift absolute -right-24 top-10 h-80 w-80 rounded-full bg-blue-600/15 blur-3xl" aria-hidden="true" />
             <div className="glow-drift absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" style={{ animationDelay: "5s" }} aria-hidden="true" />
+            <div className="glow-drift absolute left-[35%] top-[15%] h-72 w-72 rounded-full bg-violet-600/15 blur-[110px]" style={{ animationDelay: "2.5s" }} aria-hidden="true" />
+            <div className="glow-drift absolute right-[22%] bottom-[-20%] h-64 w-64 rounded-full bg-fuchsia-600/10 blur-[100px]" style={{ animationDelay: "8s" }} aria-hidden="true" />
             <div className="container-x relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 28 }}
@@ -16,12 +18,12 @@ export default function PageHero({ overline, title, description, children, seed 
                 >
                     {overline && (
                         <div className="flex items-center gap-4">
-                            <span className="h-px w-10 bg-cyan-400/50" aria-hidden="true" />
+                            <span className="h-px w-10 bg-gradient-to-r from-cyan-400 to-violet-500" aria-hidden="true" />
                             <p className="overline">{overline}</p>
                         </div>
                     )}
-                    <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        {title}
+                    <h1 className="mt-5 font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                        <span className="bg-gradient-to-r from-white via-cyan-100 to-violet-200 bg-clip-text text-transparent">{title}</span>
                     </h1>
                     {description && <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400">{description}</p>}
                     {children && <div className="mt-9">{children}</div>}

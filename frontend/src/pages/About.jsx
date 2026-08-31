@@ -5,7 +5,6 @@ import { ValueCard } from "../components/Cards";
 import ProcessTimeline from "../components/ProcessTimeline";
 import CTABand from "../components/CTABand";
 import NetworkVisual, { ShieldMark } from "../components/NetworkVisual";
-import Marquee from "../components/Marquee";
 import { VALUES, METHODOLOGY_STEPS, WHY_CHOOSE_CAPABILITIES } from "../data/content";
 
 export default function About() {
@@ -21,7 +20,6 @@ export default function About() {
                 description="We help businesses navigate the digital landscape with secure, intelligent, and scalable IT solutions. From cybersecurity and cloud to infrastructure, automation, and managed operations, we deliver technology designed around your business needs."
                 seed={17}
             />
-            <Marquee items={["Secure", "Resilient", "Future-Ready", "Business-Focused"]} dark={false} />
 
             <section data-testid="about-we-are" className="bg-white py-24 lg:py-32">
                 <div className="container-x grid items-center gap-14 lg:grid-cols-2">

@@ -7,7 +7,7 @@ export default function ProcessTimeline({ steps, dark = false }) {
             <div className="relative hidden lg:block">
                 <div className={`absolute left-0 right-0 top-6 h-px ${dark ? "bg-white/10" : "bg-navy-900/10"}`} aria-hidden="true" />
                 <motion.div
-                    className="absolute left-0 top-6 h-px origin-left bg-gradient-to-r from-cyan-500 to-blue-600"
+                    className="absolute left-0 top-6 h-px origin-left bg-gradient-to-r from-cyan-500 via-violet-500 to-rose-500"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -26,7 +26,7 @@ export default function ProcessTimeline({ steps, dark = false }) {
             <div className="relative lg:hidden">
                 <div className={`absolute bottom-4 left-6 top-4 w-px ${dark ? "bg-white/10" : "bg-navy-900/10"}`} aria-hidden="true" />
                 <motion.div
-                    className="absolute left-6 top-4 w-px origin-top bg-gradient-to-b from-cyan-500 to-blue-600"
+                    className="absolute left-6 top-4 w-px origin-top bg-gradient-to-b from-cyan-500 via-violet-500 to-rose-500"
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: true, margin: "-60px" }}
@@ -44,8 +44,17 @@ export default function ProcessTimeline({ steps, dark = false }) {
     );
 }
 
+const STEP_ACCENTS = [
+    { dark: "border-cyan-400/40 text-cyan-400", light: "border-cyan-500/40 text-cyan-600" },
+    { dark: "border-violet-400/40 text-violet-400", light: "border-violet-500/40 text-violet-600" },
+    { dark: "border-emerald-400/40 text-emerald-400", light: "border-emerald-500/40 text-emerald-600" },
+    { dark: "border-amber-400/40 text-amber-400", light: "border-amber-500/40 text-amber-600" },
+    { dark: "border-rose-400/40 text-rose-400", light: "border-rose-500/40 text-rose-600" },
+];
+
 const Step = ({ step, index, dark, horizontal }) => {
     const Icon = step.icon;
+    const a = STEP_ACCENTS[index % STEP_ACCENTS.length];
     return (
         <motion.li
             data-testid={`process-step-${step.number}`}
@@ -57,12 +66,12 @@ const Step = ({ step, index, dark, horizontal }) => {
         >
             <span
                 className={`absolute flex h-12 w-12 items-center justify-center border transition-colors ${
-                    dark ? "border-cyan-400/40 bg-navy-900 text-cyan-400" : "border-cyan-500/40 bg-white text-cyan-600"
+                    dark ? `bg-navy-900 ${a.dark}` : `bg-white ${a.light}`
                 } ${horizontal ? "left-0 top-0" : "left-0 top-0"}`}
             >
                 <Icon className="h-5 w-5" aria-hidden="true" />
             </span>
-            <span className={`font-mono text-xs tracking-[0.25em] ${dark ? "text-cyan-400" : "text-cyan-600"}`}>
+            <span className={`font-mono text-xs tracking-[0.25em] ${dark ? a.dark : a.light}`}>
                 {step.number}
             </span>
             <h3 className={`mt-2 font-display text-lg font-bold tracking-tight ${dark ? "text-white" : "text-navy-900"}`}>

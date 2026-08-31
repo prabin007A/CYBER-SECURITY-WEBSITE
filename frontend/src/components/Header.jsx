@@ -6,7 +6,7 @@ import { NAV_LINKS } from "../data/content";
 
 const Logo = ({ dark }) => (
     <Link to="/" data-testid="header-logo" className="flex items-center gap-2.5" aria-label="MITS home">
-        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
+        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 text-white">
             <ShieldCheck className="h-5 w-5" aria-hidden="true" />
         </span>
         <span className={`font-display text-xl font-extrabold tracking-tight ${dark ? "text-white" : "text-navy-900"}`}>
@@ -55,7 +55,7 @@ export default function Header() {
                             to={link.to}
                             data-testid={`nav-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                             className={({ isActive }) =>
-                                `relative py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-cyan-500 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                                `relative py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-gradient-to-r after:from-cyan-400 after:to-violet-500 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                                     isActive
                                         ? `after:scale-x-100 ${dark ? "text-white" : "text-navy-900"}`
                                         : dark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-navy-900"
@@ -71,9 +71,9 @@ export default function Header() {
                     <Link
                         to="/contact"
                         data-testid="header-cta-request-consultation"
-                        className="group relative inline-flex items-center overflow-hidden bg-blue-600 px-6 py-2.5 font-display text-[13px] font-semibold tracking-wide text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                        className="group relative inline-flex items-center overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-2.5 font-display text-[13px] font-semibold tracking-wide text-white shadow-lg shadow-indigo-500/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                     >
-                        <span className="absolute inset-0 origin-bottom scale-y-0 bg-cyan-500 transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
+                        <span className="absolute inset-0 origin-bottom scale-y-0 bg-gradient-to-r from-cyan-500 to-emerald-500 transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
                         <span className="relative z-10">Request Consultation</span>
                     </Link>
                 </div>
@@ -137,7 +137,7 @@ export default function Header() {
                                 <Link
                                     to="/contact"
                                     data-testid="mobile-cta-request-consultation"
-                                    className="block bg-blue-600 px-6 py-4 text-center font-display text-sm font-semibold text-white"
+                                    className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-4 text-center font-display text-sm font-semibold text-white"
                                 >
                                     Request Consultation
                                 </Link>

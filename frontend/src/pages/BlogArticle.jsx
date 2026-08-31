@@ -75,8 +75,8 @@ export default function BlogArticle() {
                             <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">Related Articles</h2>
                         </Reveal>
                         <Stagger className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-                            {relatedFinal.map((p) => (
-                                <BlogCard key={p.slug} post={p} />
+                            {relatedFinal.map((p, i) => (
+                                <BlogCard key={p.slug} post={p} index={i} />
                             ))}
                         </Stagger>
                     </div>

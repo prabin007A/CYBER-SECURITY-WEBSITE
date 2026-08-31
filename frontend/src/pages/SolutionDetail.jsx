@@ -75,8 +75,8 @@ export default function SolutionDetail() {
                         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">Explore More Solutions</h2>
                     </Reveal>
                     <Stagger className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
-                        {related.map((s) => (
-                            <SolutionCard key={s.slug} solution={s} />
+                        {related.map((s, i) => (
+                            <SolutionCard key={s.slug} solution={s} index={i} />
                         ))}
                     </Stagger>
                 </div>

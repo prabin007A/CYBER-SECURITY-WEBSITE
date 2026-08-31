@@ -7,14 +7,29 @@ import { PARTNERS } from "../data/content";
 
 const SLOTS = Array.from({ length: 6 }, (_, i) => i + 1);
 
-const PartnerCard = ({ partner }) => {
+const PARTNER_HOVERS = [
+    "hover:border-cyan-500/60 hover:shadow-[0_20px_50px_rgba(6,182,212,0.18)]",
+    "hover:border-violet-500/60 hover:shadow-[0_20px_50px_rgba(139,92,246,0.18)]",
+    "hover:border-emerald-500/60 hover:shadow-[0_20px_50px_rgba(16,185,129,0.18)]",
+    "hover:border-amber-500/60 hover:shadow-[0_20px_50px_rgba(245,158,11,0.18)]",
+    "hover:border-rose-500/60 hover:shadow-[0_20px_50px_rgba(244,63,94,0.18)]",
+];
+const PARTNER_TEXT_HOVERS = [
+    "group-hover:text-cyan-300",
+    "group-hover:text-violet-300",
+    "group-hover:text-emerald-300",
+    "group-hover:text-amber-300",
+    "group-hover:text-rose-300",
+];
+
+const PartnerCard = ({ partner, index = 0 }) => {
     const inner = (
         <>
             <div className="flex h-24 items-center justify-center border-b border-navy-900/10 bg-navy-900 px-6 transition-colors duration-300 group-hover:bg-navy-800">
                 {partner.logo ? (
                     <img src={partner.logo} alt={`${partner.name} logo`} loading="lazy" className="max-h-12 w-auto object-contain" />
                 ) : (
-                    <span className="text-center font-display text-xl font-extrabold tracking-tight text-slate-200 transition-colors duration-300 group-hover:text-cyan-300">
+                    <span className={`text-center font-display text-xl font-extrabold tracking-tight text-slate-200 transition-colors duration-300 ${PARTNER_TEXT_HOVERS[index % 5]}`}>
                         {partner.name}
                     </span>
                 )}
@@ -30,7 +45,7 @@ const PartnerCard = ({ partner }) => {
             </div>
         </>
     );
-    const cls = "group block h-full border border-navy-900/10 bg-white text-left transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:shadow-[0_20px_50px_rgba(11,17,32,0.10)]";
+    const cls = `group block h-full border border-navy-900/10 bg-white text-left transition-all duration-300 hover:-translate-y-1 ${PARTNER_HOVERS[index % 5]}`;
     return (
         <StaggerItem className="h-full">
             {partner.url ? (
@@ -74,8 +89,8 @@ export default function Partners() {
                     />
                     {hasPartners ? (
                         <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-                            {PARTNERS.map((partner) => (
-                                <PartnerCard key={partner.name} partner={partner} />
+                            {PARTNERS.map((partner, i) => (
+                                <PartnerCard key={partner.name} partner={partner} index={i} />
                             ))}
                         </Stagger>
                     ) : (

@@ -55,6 +55,9 @@ function Hero() {
             <motion.div style={{ x: glowMX, y: glowMY }} className="absolute inset-0" aria-hidden="true">
                 <div className="glow-drift absolute right-[8%] top-[18%] h-96 w-96 rounded-full bg-blue-600/15 blur-3xl" />
                 <div className="glow-drift absolute bottom-[8%] left-[4%] h-80 w-80 rounded-full bg-cyan-500/12 blur-3xl" style={{ animationDelay: "6s" }} />
+                <div className="glow-drift absolute left-[30%] top-[10%] h-80 w-80 rounded-full bg-violet-600/14 blur-[120px]" style={{ animationDelay: "3s" }} />
+                <div className="glow-drift absolute bottom-[20%] right-[28%] h-64 w-64 rounded-full bg-fuchsia-600/10 blur-[110px]" style={{ animationDelay: "9s" }} />
+                <div className="glow-drift absolute left-[55%] bottom-[2%] h-56 w-56 rounded-full bg-emerald-500/10 blur-[100px]" style={{ animationDelay: "12s" }} />
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/60" aria-hidden="true" />
 
@@ -80,7 +83,7 @@ function Hero() {
                 <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-7xl" data-testid="hero-headline">
                     <HeadlineLine delay={0.25}>Beyond Defense.</HeadlineLine>
                     <HeadlineLine delay={0.4}>
-                        <span className="gradient-text-animated bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Ahead of Threats</span>
+                        <span className="gradient-text-animated bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Ahead of Threats</span>
                     </HeadlineLine>
                 </h1>
                 <motion.p
@@ -161,8 +164,8 @@ export default function Home() {
                         dark
                     />
                     <Stagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                        {INDUSTRIES.map((industry) => (
-                            <IndustryCard key={industry.name} industry={industry} />
+                        {INDUSTRIES.map((industry, i) => (
+                            <IndustryCard key={industry.name} industry={industry} index={i} />
                         ))}
                     </Stagger>
                 </div>
@@ -179,8 +182,8 @@ export default function Home() {
                         />
                     </div>
                     <Stagger className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                        {SOLUTIONS.map((solution) => (
-                            <SolutionCard key={solution.slug} solution={solution} />
+                        {SOLUTIONS.map((solution, i) => (
+                            <SolutionCard key={solution.slug} solution={solution} index={i} />
                         ))}
                     </Stagger>
                 </div>
@@ -200,7 +203,7 @@ export default function Home() {
                         </h2>
                         <div className="relative mt-7 pl-6">
                             <motion.span
-                                className="absolute left-0 top-0 h-full w-0.5 origin-top bg-cyan-500"
+                                className="absolute left-0 top-0 h-full w-0.5 origin-top bg-gradient-to-b from-cyan-500 via-violet-500 to-emerald-500"
                                 initial={{ scaleY: 0 }}
                                 whileInView={{ scaleY: 1 }}
                                 viewport={{ once: true, margin: "-80px" }}
@@ -222,9 +225,13 @@ export default function Home() {
                                 <ShieldMark className="w-full" />
                             </div>
                             <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-                                {["Detect", "Prevent", "Respond"].map((label) => (
+                                {[
+                                    { label: "Detect", cls: "text-cyan-600" },
+                                    { label: "Prevent", cls: "text-violet-600" },
+                                    { label: "Respond", cls: "text-emerald-600" },
+                                ].map(({ label, cls }) => (
                                     <div key={label} className="border border-navy-900/10 bg-white px-2 py-3">
-                                        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-600">{label}</span>
+                                        <span className={`font-mono text-[11px] uppercase tracking-[0.2em] ${cls}`}>{label}</span>
                                     </div>
                                 ))}
                             </div>

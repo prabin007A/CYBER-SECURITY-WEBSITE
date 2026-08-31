@@ -18,8 +18,8 @@ export default function Footer() {
                 <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
                     <div>
                         <p className="overline">Next Step</p>
-                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                            Secure Today. Prepare for Tomorrow.
+                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                            <span className="bg-gradient-to-r from-white via-cyan-200 to-violet-300 bg-clip-text text-transparent">Secure Today. Prepare for Tomorrow.</span>
                         </h2>
                     </div>
                     <CtaButton to="/contact" variant="primary" testId="footer-cta-talk-to-us">Talk to Us</CtaButton>
@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="container-x grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <Link to="/" className="flex items-center gap-2.5" aria-label="MITS home">
-                        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
+                        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 text-white">
                             <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                         </span>
                         <span className="font-display text-xl font-extrabold tracking-tight text-white">MITS</span>
@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
 
                 <nav aria-label="Company">
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-cyan-400">Company</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-violet-400">Company</h3>
                     <ul className="mt-5 space-y-3">
                         {companyLinks.map((l) => (
                             <li key={l.to}>
@@ -54,7 +54,7 @@ export default function Footer() {
                 </nav>
 
                 <nav aria-label="Solutions">
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-cyan-400">Solutions</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-emerald-400">Solutions</h3>
                     <ul className="mt-5 space-y-3">
                         {SOLUTIONS.map((s) => (
                             <li key={s.slug}>
@@ -68,7 +68,7 @@ export default function Footer() {
                 </nav>
 
                 <div>
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-cyan-400">Contact</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-amber-400">Contact</h3>
                     <p className="mt-5 text-sm leading-relaxed text-slate-400">{CONTACT_PLACEHOLDER_NOTE}</p>
                     <Link to="/contact" data-testid="footer-contact-link" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300">
                         Request a consultation

@@ -66,8 +66,8 @@ export default function CyberSecurityServices() {
                         description="A complete defensive capability set — from prevention to response."
                     />
                     <Stagger className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                        {CYBER_CAPABILITIES.map((cap) => (
-                            <CapabilityCard key={cap.title} capability={cap} />
+                        {CYBER_CAPABILITIES.map((cap, i) => (
+                            <CapabilityCard key={cap.title} capability={cap} index={i} />
                         ))}
                     </Stagger>
                 </div>

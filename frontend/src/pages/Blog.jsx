@@ -122,8 +122,8 @@ export default function Blog() {
 
                     {gridPosts.length > 0 ? (
                         <Stagger key={`${category}-${query}-${currentPage}`} className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                            {gridPosts.map((post) => (
-                                <BlogCard key={post.slug} post={post} />
+                            {gridPosts.map((post, i) => (
+                                <BlogCard key={post.slug} post={post} index={i} />
                             ))}
                         </Stagger>
                     ) : (

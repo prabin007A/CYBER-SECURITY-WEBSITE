@@ -27,8 +27,8 @@ export default function Solutions() {
                         description="Select a solution to learn more about how it works and what it can do for your business."
                     />
                     <Stagger className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                        {SOLUTIONS.map((solution) => (
-                            <SolutionCard key={solution.slug} solution={solution} />
+                        {SOLUTIONS.map((solution, i) => (
+                            <SolutionCard key={solution.slug} solution={solution} index={i} />
                         ))}
                     </Stagger>
                 </div>

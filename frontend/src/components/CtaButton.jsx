@@ -5,14 +5,14 @@ export default function CtaButton({ to, children, variant = "primary", testId, o
     const base =
         "group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-3.5 font-display text-sm font-semibold tracking-wide transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
     const styles = {
-        primary: "bg-blue-600 text-white hover:text-white",
+        primary: "bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/25 hover:text-white",
         dark: "bg-navy-900 text-white hover:text-white",
         outlineLight: "border border-slate-500/60 text-slate-100 hover:text-navy-900",
         outlineDark: "border border-navy-900/30 text-navy-900 hover:text-white",
     };
     const fill = {
-        primary: "bg-cyan-500",
-        dark: "bg-blue-600",
+        primary: "bg-gradient-to-r from-cyan-500 to-emerald-500",
+        dark: "bg-gradient-to-r from-blue-600 to-violet-600",
         outlineLight: "bg-slate-100",
         outlineDark: "bg-navy-900",
     };
