@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { TitleReveal } from "./Motion";
 
 export const Reveal = ({ children, delay = 0, y = 24, className = "" }) => (
     <motion.div
@@ -59,7 +60,7 @@ export const SectionHeader = ({ index, overline, title, description, dark = fals
                 <p className={`overline ${dark ? a.dark : a.light}`} data-testid={`overline-${overline?.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>{overline}</p>
             </div>
             <h2 className={`mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight ${dark ? "text-slate-50" : "text-navy-900"}`}>
-                {title}
+                {typeof title === "string" ? <TitleReveal text={title} /> : title}
             </h2>
             {description && (
                 <p className={`mt-5 text-base leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>

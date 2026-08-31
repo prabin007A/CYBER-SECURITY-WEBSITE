@@ -45,7 +45,7 @@ const PartnerCard = ({ partner, index = 0 }) => {
             </div>
         </>
     );
-    const cls = `group block h-full border border-navy-900/10 bg-white text-left transition-all duration-300 hover:-translate-y-1 ${PARTNER_HOVERS[index % 5]}`;
+    const cls = `card-sheen group block h-full border border-navy-900/10 bg-white text-left transition-all duration-300 hover:-translate-y-1 ${PARTNER_HOVERS[index % 5]}`;
     return (
         <StaggerItem className="h-full">
             {partner.url ? (

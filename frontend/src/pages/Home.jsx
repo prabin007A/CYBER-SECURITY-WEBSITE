@@ -5,12 +5,19 @@ import Seo from "../components/Seo";
 import NetworkVisual, { ShieldMark } from "../components/NetworkVisual";
 import CtaButton from "../components/CtaButton";
 import { SectionHeader, Reveal, Stagger } from "../components/Reveal";
-import { WordReveal } from "../components/Motion";
+import { WordReveal, CountUp, Parallax, ScaleReveal } from "../components/Motion";
 import { SolutionCard, IndustryCard } from "../components/Cards";
 import ProcessTimeline from "../components/ProcessTimeline";
 import CTABand from "../components/CTABand";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
 import { SOLUTIONS, INDUSTRIES, APPROACH_STEPS } from "../data/content";
+
+const STATS = [
+    { value: 6, suffix: "+", label: "Solution Areas", color: "text-cyan-400" },
+    { value: 8, suffix: "", label: "Industries Served", color: "text-violet-400" },
+    { value: 10, suffix: "", label: "Technology Partners", color: "text-emerald-400" },
+    { value: 24, suffix: "/7", label: "Security Monitoring", color: "text-amber-400" },
+];
 
 const HeadlineLine = ({ children, delay }) => (
     <span className="block overflow-hidden pb-1">
@@ -171,6 +178,21 @@ export default function Home() {
                 </div>
             </section>
 
+            <section data-testid="stats-band" className="relative overflow-hidden border-t border-white/5 bg-navy-950 py-16 lg:py-20">
+                <div className="glow-drift absolute -top-20 left-[15%] h-56 w-56 rounded-full bg-violet-600/15 blur-[100px]" aria-hidden="true" />
+                <div className="glow-drift absolute -bottom-16 right-[12%] h-56 w-56 rounded-full bg-cyan-500/15 blur-[100px]" style={{ animationDelay: "5s" }} aria-hidden="true" />
+                <div className="container-x relative z-10 grid grid-cols-2 gap-10 lg:grid-cols-4">
+                    {STATS.map((s, i) => (
+                        <Reveal key={s.label} delay={i * 0.1}>
+                            <p className={`font-display text-4xl font-extrabold sm:text-5xl ${s.color}`} data-testid={`stat-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                                <CountUp value={s.value} suffix={s.suffix} />
+                            </p>
+                            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">{s.label}</p>
+                        </Reveal>
+                    ))}
+                </div>
+            </section>
+
             <section data-testid="our-solutions" className="bg-slate-50 py-24 lg:py-32">
                 <div className="container-x">
                     <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
@@ -190,7 +212,9 @@ export default function Home() {
             </section>
 
             <section data-testid="why-cyber-security-matters" className="relative overflow-hidden border-y border-navy-900/10 bg-white py-24 lg:py-32">
-                <span className="pointer-events-none absolute -top-8 right-4 select-none font-display text-[10rem] font-extrabold leading-none text-navy-900/[0.04] lg:text-[16rem]" aria-hidden="true">03</span>
+                <Parallax speed={0.2} className="pointer-events-none absolute -top-8 right-4 select-none" aria-hidden="true">
+                    <span className="font-display text-[10rem] font-extrabold leading-none text-navy-900/[0.04] lg:text-[16rem]">03</span>
+                </Parallax>
                 <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-2">
                     <Reveal>
                         <div className="flex items-center gap-4">
@@ -219,8 +243,9 @@ export default function Home() {
                             Security is no longer an IT checkbox — it is a business strategy. Organizations that invest in proactive protection operate with greater confidence, earn deeper trust, and move faster than those forced to react.
                         </p>
                     </Reveal>
-                    <Reveal delay={0.15} className="relative">
-                        <div className="relative mx-auto max-w-md border border-navy-900/10 bg-slate-50 p-10">
+                    <ScaleReveal className="relative">
+                        <Parallax speed={0.1}>
+                            <div className="relative mx-auto max-w-md border border-navy-900/10 bg-slate-50 p-10">
                             <div className="float-soft">
                                 <ShieldMark className="w-full" />
                             </div>
@@ -236,7 +261,8 @@ export default function Home() {
                                 ))}
                             </div>
                         </div>
-                    </Reveal>
+                        </Parallax>
+                    </ScaleReveal>
                 </div>
             </section>
 

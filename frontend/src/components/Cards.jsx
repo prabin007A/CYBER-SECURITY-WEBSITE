@@ -72,7 +72,7 @@ export const SolutionCard = ({ solution, index = 0 }) => {
                 <Link
                     to={`/solutions/${solution.slug}`}
                     data-testid={`solution-card-${solution.slug}`}
-                    className={`group flex h-full flex-col border border-navy-900/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}
+                    className={`card-sheen group flex h-full flex-col border border-navy-900/10 bg-white p-8 transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}
                 >
                     <span className={`flex h-12 w-12 items-center justify-center border transition-colors duration-300 ${a.iconLight}`}>
                         <Icon className="h-6 w-6" aria-hidden="true" />
@@ -98,7 +98,7 @@ export const IndustryCard = ({ industry, index = 0 }) => {
                 <Link
                     to="/industries"
                     data-testid={`industry-card-${industry.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                    className={`group flex h-full flex-col border border-white/10 bg-white/[0.03] p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.06] ${a.hoverDark}`}
+                    className={`card-sheen group flex h-full flex-col border border-white/10 bg-white/[0.03] p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.06] ${a.hoverDark}`}
                 >
                     <span className={`flex h-11 w-11 items-center justify-center border transition-colors duration-300 ${a.iconDark}`}>
                         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -120,7 +120,7 @@ export const ValueCard = ({ value, index }) => {
     const a = accentAt(index);
     return (
         <StaggerItem className="h-full">
-            <div data-testid={`value-card-${value.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className={`group flex h-full flex-col items-start border border-navy-900/10 bg-white p-7 transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}>
+            <div data-testid={`value-card-${value.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className={`card-sheen group flex h-full flex-col items-start border border-navy-900/10 bg-white p-7 transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}>
                 <div className="flex w-full items-center justify-between">
                     <span className={`flex h-11 w-11 items-center justify-center border transition-colors duration-300 ${a.iconLight}`}>
                         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -140,7 +140,7 @@ export const CapabilityCard = ({ capability, dark = false, index = 0 }) => {
         <StaggerItem className="h-full">
             <div
                 data-testid={`capability-card-${capability.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className={`group h-full border p-8 transition-all duration-300 hover:-translate-y-1 ${
+                className={`card-sheen group h-full border p-8 transition-all duration-300 hover:-translate-y-1 ${
                     dark
                         ? `border-white/10 bg-white/[0.03] ${a.hoverDark}`
                         : `border-navy-900/10 bg-white ${a.hoverLight}`
@@ -163,7 +163,7 @@ export const BlogCard = ({ post, index = 0 }) => {
             <Link
                 to={`/blog/${post.slug}`}
                 data-testid={`blog-card-${post.slug}`}
-                className={`group flex h-full flex-col border border-navy-900/10 bg-white transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}
+                className={`card-sheen group flex h-full flex-col border border-navy-900/10 bg-white transition-all duration-300 hover:-translate-y-1 ${a.hoverLight}`}
             >
                 <div className="relative flex h-40 items-end overflow-hidden bg-navy-900 p-5">
                     <div className="absolute inset-0 opacity-40">
