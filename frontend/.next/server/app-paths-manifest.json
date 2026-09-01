@@ -1,0 +1,14 @@
+{
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/cyber-security-services/page": "app/cyber-security-services/page.js",
+  "/solutions/page": "app/solutions/page.js",
+  "/industries/page": "app/industries/page.js",
+  "/technology-partners/page": "app/technology-partners/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/terms-and-conditions/page": "app/terms-and-conditions/page.js",
+  "/solutions/[slug]/page": "app/solutions/[slug]/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js"
+}
