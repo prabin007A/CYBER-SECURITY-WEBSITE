@@ -2,18 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
 
-const Logo = ({ dark }: { dark: boolean }) => (
-    <Link href="/" data-testid="header-logo" className="flex items-center gap-2.5" aria-label="MITS home">
-        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 text-white">
-            <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-        </span>
-        <span className={`font-display text-xl font-extrabold tracking-tight ${dark ? "text-white" : "text-navy-900"}`}>
-            MITS
+const Logo = () => (
+    <Link href="/" data-testid="header-logo" className="flex items-center" aria-label="MITS home">
+        <span className="flex items-center rounded-lg bg-white px-2.5 py-1.5 shadow-[0_2px_10px_rgba(11,17,32,0.08)] ring-1 ring-navy-900/5">
+            <Image src="/mits-logo.png" alt="MITS" width={200} height={131} className="h-7 w-auto" priority />
         </span>
     </Link>
 );
@@ -49,7 +47,7 @@ export default function Header() {
             }`}
         >
             <div className="container-x flex h-[76px] items-center justify-between">
-                <Logo dark={dark} />
+                <Logo />
 
                 <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary">
                     {NAV_LINKS.map((link) => {

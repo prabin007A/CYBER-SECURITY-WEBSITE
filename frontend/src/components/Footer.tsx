@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ShieldCheck, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { SOLUTIONS, CONTACT_PLACEHOLDER_NOTE } from "@/data/content";
 import CtaButton from "./CtaButton";
 
@@ -30,11 +31,10 @@ export default function Footer() {
 
             <div className="container-x grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
-                    <Link href="/" className="flex items-center gap-2.5" aria-label="MITS home">
-                        <span className="flex h-9 w-9 items-center justify-center bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 text-white">
-                            <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+                    <Link href="/" className="inline-flex items-center" aria-label="MITS home">
+                        <span className="flex items-center rounded-lg bg-white px-2.5 py-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
+                            <Image src="/mits-logo.png" alt="MITS" width={200} height={131} className="h-8 w-auto" />
                         </span>
-                        <span className="font-display text-xl font-extrabold tracking-tight text-white">MITS</span>
                     </Link>
                     <p className="mt-5 text-sm leading-relaxed text-slate-400">
                         An IT solutions and cybersecurity company focused on building secure, resilient, and future-ready digital environments.
