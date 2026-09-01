@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="container-x grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <Link href="/" className="inline-flex items-center" aria-label="MITS home">
-                        <Image src="/mits-logo-white.png" alt="MITS" width={200} height={131} className="h-12 w-auto" />
+                        <Image src="/mits-logo-dark.png" alt="MITS" width={200} height={131} className="h-14 w-auto" />
                     </Link>
                     <p className="mt-5 text-sm leading-relaxed text-slate-400">
                         An IT solutions and cybersecurity company focused on building secure, resilient, and future-ready digital environments.

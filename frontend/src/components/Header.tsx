@@ -11,11 +11,11 @@ import { NAV_LINKS } from "@/data/content";
 const Logo = ({ dark }: { dark: boolean }) => (
     <Link href="/" data-testid="header-logo" className="flex items-center" aria-label="MITS home">
         <Image
-            src={dark ? "/mits-logo-white.png" : "/mits-logo.png"}
+            src={dark ? "/mits-logo-dark.png" : "/mits-logo.png"}
             alt="MITS"
             width={200}
             height={131}
-            className="h-11 w-auto"
+            className="h-14 w-auto"
             priority
         />
     </Link>
