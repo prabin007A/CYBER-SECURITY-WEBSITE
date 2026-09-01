@@ -8,11 +8,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
 
-const Logo = () => (
+const Logo = ({ dark }: { dark: boolean }) => (
     <Link href="/" data-testid="header-logo" className="flex items-center" aria-label="MITS home">
-        <span className="flex items-center rounded-lg bg-white px-2.5 py-1.5 shadow-[0_2px_10px_rgba(11,17,32,0.08)] ring-1 ring-navy-900/5">
-            <Image src="/mits-logo.png" alt="MITS" width={200} height={131} className="h-7 w-auto" priority />
-        </span>
+        <Image
+            src={dark ? "/mits-logo-white.png" : "/mits-logo.png"}
+            alt="MITS"
+            width={200}
+            height={131}
+            className="h-11 w-auto"
+            priority
+        />
     </Link>
 );
 
@@ -47,7 +52,7 @@ export default function Header() {
             }`}
         >
             <div className="container-x flex h-[76px] items-center justify-between">
-                <Logo />
+                <Logo dark={dark} />
 
                 <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary">
                     {NAV_LINKS.map((link) => {
