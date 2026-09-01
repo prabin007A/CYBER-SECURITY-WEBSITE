@@ -39,18 +39,19 @@ export const WordReveal = ({ text, className = "" }: { text: string; className?:
             aria-label={text}
         >
             {words.map((word, i) => (
-                <motion.span
-                    key={i}
-                    aria-hidden="true"
-                    className="inline-block"
-                    variants={{
-                        hidden: { opacity: 0, y: 14, filter: "blur(4px)" },
-                        show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
-                    }}
-                >
-                    {word}
-                    {i < words.length - 1 ? " " : ""}
-                </motion.span>
+                <span key={i} className="inline-block">
+                    <motion.span
+                        aria-hidden="true"
+                        className="inline-block"
+                        variants={{
+                            hidden: { opacity: 0, y: 14, filter: "blur(4px)" },
+                            show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+                        }}
+                    >
+                        {word}
+                    </motion.span>
+                    {i < words.length - 1 ? "\u00A0" : ""}
+                </span>
             ))}
         </motion.span>
     );

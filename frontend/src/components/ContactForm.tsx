@@ -33,14 +33,14 @@ const validate = (f: FormState): FormErrors => {
 };
 
 const inputClass = (error?: string | boolean) =>
-    `w-full border bg-white px-4 py-3 text-sm text-navy-900 placeholder:text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500/40 ${
-        error ? "border-red-400" : "border-navy-900/15 hover:border-navy-900/30 focus:border-cyan-500"
+    `w-full rounded-xl border bg-command-900/80 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 transition-colors focus:outline-none focus:ring-2 focus:ring-cobalt/30 ${
+        error ? "border-crimson/70" : "border-white/12 hover:border-white/25 focus:border-cobalt"
     }`;
 
 const Field = ({ label, name, error, children, required = true }: { label: string; name: string; error?: string; children: React.ReactNode; required?: boolean }) => (
     <div>
-        <label htmlFor={name} className="mb-2 block font-display text-sm font-semibold text-navy-900">
-            {label} {required && <span className="text-cyan-600">*</span>}
+        <label htmlFor={name} className="mb-2 block font-display text-sm font-semibold text-slate-100">
+            {label} {required && <span className="text-crimson">*</span>}
         </label>
         {children}
         <AnimatePresence>
@@ -108,13 +108,13 @@ export default function ContactForm() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="flex h-full min-h-[420px] flex-col items-center justify-center border border-cyan-500/30 bg-cyan-500/5 p-10 text-center"
+                className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-2xl border border-cobalt/30 bg-cobalt/5 p-10 text-center"
             >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cyan-500/15 text-cyan-600">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cobalt/15 text-signal">
                     <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
                 </span>
-                <h3 className="mt-6 font-display text-2xl font-bold text-navy-900">Thank you.</h3>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
+                <h3 className="mt-6 font-display text-2xl font-bold text-white">Thank you.</h3>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-400">
                     Your request has been submitted successfully. Our team will review it and get back to you.
                 </p>
             </motion.div>
@@ -164,9 +164,9 @@ export default function ContactForm() {
                     type="submit"
                     data-testid="contact-submit-button"
                     disabled={status === "loading"}
-                    className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden bg-blue-600 px-8 py-4 font-display text-sm font-semibold tracking-wide text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                    className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-cobalt to-crimson px-8 py-4 font-display text-sm font-semibold tracking-wide text-white shadow-lg shadow-cobalt/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
                 >
-                    <span className="absolute inset-0 origin-bottom scale-y-0 bg-cyan-500 transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
+                    <span className="absolute inset-0 origin-bottom scale-y-0 bg-gradient-to-r from-signal to-cobalt transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
                     <span className="relative z-10 inline-flex items-center gap-2">
                         {status === "loading" && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
                         {status === "loading" ? "Submitting…" : "Request Consultation"}

@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+**/.next/**
+out/
+**/out/
+build/
+dist/
+frontend_cra_backup/
+next-env.d.ts

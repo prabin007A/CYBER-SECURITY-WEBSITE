@@ -40,11 +40,11 @@ export const StaggerItem = ({ children, className = "" }: { children: React.Reac
 );
 
 const HEAD_ACCENTS = [
-    { light: "text-cyan-600", dark: "text-cyan-400", lineLight: "bg-cyan-500/50", lineDark: "bg-cyan-400/50" },
-    { light: "text-violet-600", dark: "text-violet-400", lineLight: "bg-violet-500/50", lineDark: "bg-violet-400/50" },
-    { light: "text-emerald-600", dark: "text-emerald-400", lineLight: "bg-emerald-500/50", lineDark: "bg-emerald-400/50" },
-    { light: "text-amber-600", dark: "text-amber-400", lineLight: "bg-amber-500/50", lineDark: "bg-amber-400/50" },
-    { light: "text-rose-600", dark: "text-rose-400", lineLight: "bg-rose-500/50", lineDark: "bg-rose-400/50" },
+    { light: "text-cobalt", dark: "text-cobalt-soft", lineLight: "bg-cobalt/50", lineDark: "bg-cobalt/60" },
+    { light: "text-crimson", dark: "text-crimson", lineLight: "bg-crimson/50", lineDark: "bg-crimson/60" },
+    { light: "text-cyan-600", dark: "text-signal", lineLight: "bg-signal/50", lineDark: "bg-signal/60" },
+    { light: "text-violet-600", dark: "text-violet-300", lineLight: "bg-violet-500/50", lineDark: "bg-violet-400/60" },
+    { light: "text-emerald-600", dark: "text-emerald-300", lineLight: "bg-emerald-500/50", lineDark: "bg-emerald-400/60" },
 ];
 
 interface SectionHeaderProps {
@@ -56,7 +56,7 @@ interface SectionHeaderProps {
     className?: string;
 }
 
-export const SectionHeader = ({ index, overline, title, description, dark = false, className = "" }: SectionHeaderProps) => {
+export const SectionHeader = ({ index, overline, title, description, dark = true, className = "" }: SectionHeaderProps) => {
     const n = index ? (parseInt(index, 10) - 1 + 500) % HEAD_ACCENTS.length : 0;
     const a = HEAD_ACCENTS[n];
     return (

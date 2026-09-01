@@ -7,17 +7,34 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                display: ["Outfit", "sans-serif"],
-                body: ["IBM Plex Sans", "sans-serif"],
-                mono: ["IBM Plex Mono", "monospace"],
+                display: ["Plus Jakarta Sans", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["JetBrains Mono", "monospace"],
             },
             colors: {
+                command: {
+                    950: "#050810",
+                    900: "#070B14",
+                    800: "#0D1322",
+                    700: "#141C30",
+                    600: "#1E2942",
+                },
+                cobalt: {
+                    DEFAULT: "#1E50FF",
+                    hover: "#143ECC",
+                    soft: "#4D74FF",
+                },
+                crimson: {
+                    DEFAULT: "#FF2E4C",
+                    hover: "#D91B36",
+                },
+                signal: "#00F0FF",
                 navy: {
-                    950: "#060B18",
-                    900: "#0B1120",
-                    800: "#111A2E",
-                    700: "#1E293B",
-                    600: "#334155",
+                    950: "#050810",
+                    900: "#070B14",
+                    800: "#0D1322",
+                    700: "#141C30",
+                    600: "#1E2942",
                 },
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',

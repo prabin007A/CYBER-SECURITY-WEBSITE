@@ -9,7 +9,7 @@ import { PARTNERS, type Partner } from "@/data/content";
 const SLOTS = Array.from({ length: 6 }, (_, i) => i + 1);
 
 const PARTNER_HOVERS = [
-    "hover:border-cyan-500/60 hover:shadow-[0_20px_50px_rgba(6,182,212,0.18)]",
+    "hover:border-cobalt/60 hover:shadow-[0_20px_50px_rgba(6,182,212,0.18)]",
     "hover:border-violet-500/60 hover:shadow-[0_20px_50px_rgba(139,92,246,0.18)]",
     "hover:border-emerald-500/60 hover:shadow-[0_20px_50px_rgba(16,185,129,0.18)]",
     "hover:border-amber-500/60 hover:shadow-[0_20px_50px_rgba(245,158,11,0.18)]",
@@ -26,7 +26,7 @@ const PARTNER_TEXT_HOVERS = [
 const PartnerCard = ({ partner, index = 0 }: { partner: Partner; index?: number }) => {
     const inner = (
         <>
-            <div className="flex h-24 items-center justify-center border-b border-navy-900/10 bg-navy-900 px-6 transition-colors duration-300 group-hover:bg-navy-800">
+            <div className="flex h-24 items-center justify-center border-b border-white/10 bg-command-950 px-6 transition-colors duration-300 group-hover:bg-navy-800">
                 {partner.logo ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={partner.logo} alt={`${partner.name} logo`} loading="lazy" className="max-h-12 w-auto object-contain" />
@@ -37,8 +37,8 @@ const PartnerCard = ({ partner, index = 0 }: { partner: Partner; index?: number 
                 )}
             </div>
             <div className="p-6">
-                {partner.logo && <h3 className="font-display text-lg font-bold text-navy-900">{partner.name}</h3>}
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{partner.description}</p>
+                {partner.logo && <h3 className="font-display text-lg font-bold text-slate-100">{partner.name}</h3>}
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{partner.description}</p>
                 {partner.url && (
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
                         Visit partner <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -47,7 +47,7 @@ const PartnerCard = ({ partner, index = 0 }: { partner: Partner; index?: number 
             </div>
         </>
     );
-    const cls = `card-sheen group block h-full border border-navy-900/10 bg-white text-left transition-all duration-300 hover:-translate-y-1 ${PARTNER_HOVERS[index % 5]}`;
+    const cls = `card-sheen group block h-full border border-white/10 bg-white/[0.03] text-left transition-all duration-300 hover:-translate-y-1 ${PARTNER_HOVERS[index % 5]}`;
     return (
         <StaggerItem className="h-full">
             {partner.url ? (
@@ -73,7 +73,7 @@ export default function PartnersView() {
                 description="Technology partnerships that help us deliver secure and scalable solutions."
                 seed={43}
             />
-            <section data-testid="partners-section" className="bg-slate-50 py-24 lg:py-32">
+            <section data-testid="partners-section" className="bg-command-950 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="01"
@@ -98,7 +98,7 @@ export default function PartnersView() {
                                     <StaggerItem key={slot}>
                                         <div
                                             data-testid={`partner-slot-${slot}`}
-                                            className="flex aspect-[3/2] flex-col items-center justify-center gap-2 border border-dashed border-navy-900/20 bg-white text-slate-400 transition-colors duration-300 hover:border-cyan-500/50 hover:text-cyan-600"
+                                            className="flex aspect-[3/2] flex-col items-center justify-center gap-2 border border-dashed border-white/15 bg-white/[0.03] text-slate-400 transition-colors duration-300 hover:border-cobalt/50 hover:text-signal"
                                         >
                                             <Hexagon className="h-6 w-6" aria-hidden="true" />
                                             <span className="font-mono text-[10px] uppercase tracking-[0.2em]">Partner {String(slot).padStart(2, "0")}</span>
@@ -107,7 +107,7 @@ export default function PartnersView() {
                                 ))}
                             </Stagger>
                             <Reveal className="mt-10">
-                                <p className="max-w-2xl text-sm leading-relaxed text-slate-500">
+                                <p className="max-w-2xl text-sm leading-relaxed text-slate-400">
                                     These spaces are reserved for our official technology partners. Logos and partner details will be added once announced.
                                 </p>
                             </Reveal>

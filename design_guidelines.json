@@ -1,71 +1,147 @@
 {
-  "project_context": "MITS Corporate Cybersecurity Website - Colorful Refresh",
-  "theme": "dark",
-  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
-    "Transform the current monochromatic (navy+cyan) theme into a vibrant, multi-hued 'Prismatic Enterprise' aesthetic while maintaining enterprise trustworthiness.",
-    "Do not use generic centered layouts or simplistic flat colors. Create depth using dark slate backgrounds layered with colorful, blurred glowing orbs.",
-    "Replace flat cyan accents with rich, multi-color gradients and a diverse set of jewel-tone accents (Emerald, Violet, Amber, Rose, Royal Blue).",
-    "Never use pure black or flat navy. Use bg-slate-950 as the deepest background, tinted with ambient colored glows.",
-    "Ensure high contrast: All text must pass WCAG AA over dark backgrounds. Use text-shadow on text placed over glowing backgrounds.",
-    "Buttons should use modern, pill-shaped or slightly rounded styles with vibrant gradient backgrounds and interaction animations.",
-    "Card hovers should feature distinct, colorful glows (e.g., using box-shadow with rgba values of violet, emerald, or blue) instead of just cyan borders.",
-    "For lists or mapped components (like IndustryCard, ValueCard, CapabilityCard), cycle through a predefined array of vibrant colors (e.g., Violet, Blue, Emerald, Rose, Amber) based on the index to make the grid inherently colorful.",
-    "Do not break existing Framer Motion animations or layout structures; purely inject color, gradient, and glow utility classes."
-  ],
-  "colors": {
-    "background_base": "bg-slate-950",
-    "background_surface": "bg-slate-900/50",
-    "text_primary": "text-white",
-    "text_secondary": "text-slate-300",
-    "primary_gradient": "bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-600",
-    "accent_gradients": {
-      "cyber": "bg-gradient-to-r from-emerald-400 to-cyan-500",
-      "data": "bg-gradient-to-r from-violet-500 to-fuchsia-500",
-      "warning": "bg-gradient-to-r from-amber-400 to-orange-500"
+  "theme_concept_and_mood": {
+    "concept_name": "Cyber Command Precision & Sovereign Trust",
+    "emotional_archetype": "High-Tech Defense & Elite Precision",
+    "vibe_description": "A sophisticated, high-contrast hybrid design system combining deep command-center navy hues (#070B14) with luminous electrical cobalt (#1E50FF) and dynamic crimson accent pulses (#FF2E4C). Replaces generic cybersecurity clichés with refined technical geometry, glassmorphism cards with glowing perimeter traces, subtle laser grid textures, and smooth Lenis scrollytelling.",
+    "brand_anchors": {
+      "logo_integration": "MITS wordmark in medium blue with sweeping red swoosh/ellipse",
+      "primary_brand_blue": "#1E50FF",
+      "primary_brand_red": "#FF2E4C",
+      "dark_theme_background": "#070B14",
+      "light_theme_background": "#FAFCFF"
+    }
+  },
+  "color_system": {
+    "dark_mode": {
+      "bg_primary": "#070B14",
+      "bg_secondary": "#0D1322",
+      "bg_tertiary": "#141C30",
+      "surface_glass": "rgba(13, 19, 34, 0.75)",
+      "border_subtle": "rgba(255, 255, 255, 0.08)",
+      "border_interactive": "rgba(30, 80, 255, 0.4)",
+      "border_accent": "rgba(255, 46, 76, 0.5)",
+      "text_primary": "#F1F5F9",
+      "text_secondary": "#94A3B8",
+      "text_muted": "#64748B",
+      "accent_blue_glow": "rgba(30, 80, 255, 0.25)",
+      "accent_red_pulse": "rgba(255, 46, 76, 0.3)"
     },
-    "border_subtle": "border-white/10",
-    "hover_glows": {
-      "violet": "hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:border-violet-500/50",
-      "emerald": "hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:border-emerald-500/50",
-      "blue": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:border-blue-500/50",
-      "rose": "hover:shadow-[0_0_30px_rgba(244,63,94,0.3)] hover:border-rose-500/50",
-      "amber": "hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:border-amber-500/50"
+    "light_mode": {
+      "bg_primary": "#FAFCFF",
+      "bg_secondary": "#F0F4FA",
+      "bg_tertiary": "#E2E8F0",
+      "surface_glass": "rgba(255, 255, 255, 0.85)",
+      "border_subtle": "rgba(15, 23, 42, 0.08)",
+      "border_interactive": "rgba(30, 80, 255, 0.3)",
+      "border_accent": "rgba(255, 46, 76, 0.4)",
+      "text_primary": "#0F172A",
+      "text_secondary": "#334155",
+      "text_muted": "#64748B"
+    },
+    "brand_palette": {
+      "cobalt_primary": "#1E50FF",
+      "cobalt_hover": "#143ECC",
+      "crimson_secondary": "#FF2E4C",
+      "crimson_hover": "#D91B36",
+      "cyan_signal": "#00F0FF",
+      "emerald_status": "#10B981",
+      "amber_warning": "#F59E0B"
     }
   },
   "typography": {
-    "headings": "For main hero H1s and section H2s, apply 'bg-gradient-to-r from-emerald-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent' instead of solid text, varying the gradient colors per section (e.g., use violet-to-fuchsia for 'Solutions').",
-    "overlines": "Replace 'text-cyan-500' with vibrant, context-specific jewel tones (text-violet-400, text-emerald-400, text-amber-400, text-rose-400)."
-  },
-  "visual_enhancers": {
-    "ambient_glows": "Inject absolute positioned divs with 'blur-[100px] opacity-30' behind hero sections and major grids. Use colors like bg-violet-600, bg-emerald-600, and bg-blue-600 to create a colorful aurora effect on the slate-950 background.",
-    "borders": "Instead of static border-navy-900/10, use border-white/5 for resting states, and transition to a vibrant colored border on hover.",
-    "icons": "Change icon containers from flat 'bg-navy-900 text-cyan-400' to subtle gradient backgrounds (e.g., 'bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 text-fuchsia-400') or use the array-cycling color approach."
-  },
-  "layouts": {
-    "instructions": "Keep existing grid structures (bento boxes, staggered cards). Focus strictly on modifying the color classes within the existing layout."
-  },
-  "instructions_to_main_agent": {
-    "1": "Global Search & Replace: Update 'bg-navy-900', 'bg-navy-950', and 'bg-navy-800' globally across all pages and components to use 'bg-slate-950', 'bg-slate-900', or 'bg-slate-900/50' for a darker, more neutral canvas that allows colors to pop.",
-    "2": "Dynamic Card Colors: In 'src/components/Cards.jsx', modify SolutionCard, IndustryCard, ValueCard, and CapabilityCard to accept a 'colorTheme' or use their 'index' prop to assign one of 5 distinct colors (Emerald, Violet, Blue, Rose, Amber). Update their icon colors, borders, and hover shadows dynamically based on this color.",
-    "3": "Hero Makeovers: In 'src/pages/Home.jsx', 'src/pages/About.jsx', etc., inject massive blurred, colored orbs (divs with blur-3xl or blur-[120px]) in the background to create a rich, colorful environment.",
-    "4": "Text & Overlines: Go through all pages and replace the static 'text-cyan-400' / 'text-cyan-500' utility classes on overlines and highlights with varied vibrant colors (e.g., text-violet-400 for AI solutions, text-emerald-400 for security, text-rose-400 for warnings).",
-    "5": "Buttons: In 'src/components/CtaButton.jsx' (or wherever buttons are defined), redesign the 'primary' variant to be a rich gradient: 'bg-gradient-to-r from-indigo-500 to-violet-600 text-white hover:from-indigo-400 hover:to-violet-500 shadow-lg shadow-violet-500/25'.",
-    "6": "Ensure contrast is maintained. Since the base is shifting to slate-950 (very dark), most text should remain text-slate-300 or text-white.",
-    "7": "Do not remove any 'data-testid' attributes or break Framer Motion 'StaggerItem' / 'TiltCard' wrappers."
-  },
-  "media": {
-    "image_urls": {
-      "colorful_abstract_hero": {
-        "url": "https://images.unsplash.com/photo-1671519821564-ced7e41ee7ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGNvbG9yZnVsJTIwM2QlMjBuZW9uJTIwdGVjaG5vbG9neSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzg4MTkxOTQwfDA&ixlib=rb-4.1.0&q=85",
-        "description": "Floating metallic cubes in shades of blue and purple. Good for a secondary hero or blog header background."
-      },
-      "colorful_abstract_fluid": {
-        "url": "https://images.unsplash.com/photo-1627704362507-59aeb78090c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsJTIwM2QlMjBuZW9uJTIwdGVjaG5vbG9neSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzg4MTkxOTQwfDA&ixlib=rb-4.1.0&q=85",
-        "description": "Red, blue, and black abstract fluid shape. Good for an energetic 'About Us' or 'Contact' background accent."
-      }
+    "font_family_headings": "Plus Jakarta Sans, sans-serif",
+    "font_family_body": "Inter, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-snug",
+      "body_lg": "text-lg leading-relaxed text-slate-300",
+      "body_base": "text-base leading-normal text-slate-400",
+      "caption_mono": "text-xs font-mono uppercase tracking-[0.2em] text-blue-400"
     }
   },
-  "accessibility": {
-    "contrast": "Minimum 4.5:1 for normal text, 3:1 for large text. Be extremely careful with text placed directly over the new colorful gradients. Use text-shadow or a dark overlay if needed."
-  }
+  "spacing_and_layout": {
+    "spacing_philosophy": "Generous Spacing Scale (2-3x default padding) to prevent layout density bloat and convey executive authority.",
+    "section_padding": "py-20 lg:py-32 px-4 sm:px-6 lg:px-8",
+    "container_max_width": "max-w-7xl mx-auto",
+    "grid_modes": {
+      "hero_bento": "grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8",
+      "solutions_grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8",
+      "stats_grid": "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6",
+      "partners_grid": "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
+    }
+  },
+  "component_styling": {
+    "navigation_header": {
+      "desktop": "Fixed z-50 top-4 inset-x-0 mx-auto max-w-7xl px-6 py-3 rounded-full backdrop-blur-xl bg-[#070B14]/80 border border-white/10 transition-all duration-300 shadow-2xl",
+      "scrolled_state": "bg-[#070B14]/95 border-blue-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+      "nav_links": "text-sm font-medium text-slate-300 hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-blue-500 after:absolute after:bottom-0 after:left-0 after:transition-all",
+      "cta_button": "bg-gradient-to-r from-[#1E50FF] to-[#FF2E4C] hover:from-[#143ECC] hover:to-[#D91B36] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 transition-all hover:scale-[1.02]"
+    },
+    "buttons": {
+      "primary": "relative group overflow-hidden bg-[#1E50FF] hover:bg-[#143ECC] text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-blue-500/40 active:scale-95",
+      "secondary": "relative bg-slate-900/80 hover:bg-slate-800 text-white font-semibold rounded-lg px-6 py-3 border border-white/10 hover:border-blue-500/50 transition-all duration-300 active:scale-95",
+      "accent_red": "bg-[#FF2E4C] hover:bg-[#D91B36] text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-red-500/25 transition-all duration-300"
+    },
+    "cards": {
+      "glass_bento": "relative rounded-2xl bg-[#0D1322]/80 backdrop-blur-xl border border-white/10 p-6 sm:p-8 hover:border-blue-500/40 transition-all duration-300 group overflow-hidden shadow-xl",
+      "border_glow_effect": "before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-b before:from-blue-500/20 before:to-transparent before:rounded-2xl before:pointer-events-none",
+      "hover_behavior": "hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(30,80,255,0.15)] transition-transform duration-300"
+    },
+    "forms": {
+      "input_fields": "w-full bg-[#070B14]/80 border border-white/15 focus:border-[#1E50FF] focus:ring-2 focus:ring-[#1E50FF]/20 rounded-xl px-4 py-3 text-slate-100 placeholder:text-slate-500 outline-none transition-all",
+      "submit_cta": "w-full bg-gradient-to-r from-[#1E50FF] to-[#FF2E4C] text-white font-bold py-4 rounded-xl hover:opacity-95 transition-all shadow-lg shadow-blue-500/20"
+    }
+  },
+  "signature_hero_concept": {
+    "name": "Orbital Threat Matrix & Cyber Shield Visual",
+    "description": "An interactive WebGL/SVG orbital radar ring with laser target indicators, subtle floating data nodes, ambient red-blue dual gradient aura, and a masked dynamic typography reveal.",
+    "sub_elements": [
+      "Dynamic background grid with faint laser intersections",
+      "Status telemetry pills (e.g., 'SYSTEM STATUS: 100% PROTECTED')",
+      "Dual CTA button cluster with red accent micro-badge"
+    ]
+  },
+  "motion_system": {
+    "library": "Framer Motion + Lenis Smooth Scroll",
+    "scrollytelling": {
+      "lenis_options": "{ lerp: 0.08, duration: 1.2, smoothTouch: false }",
+      "scroll_progress_bar": "Fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1E50FF] via-[#FF2E4C] to-[#00F0FF] z-50 transform-origin-left"
+    },
+    "entrance_animations": {
+      "fade_up": {
+        "initial": { "opacity": 0, "y": 30 },
+        "animate": { "opacity": 1, "y": 0 },
+        "transition": { "duration": 0.6, "ease": [0.16, 1, 0.3, 1] }
+      },
+      "stagger_container": {
+        "animate": { "transition": { "staggerChildren": 0.1 } }
+      }
+    },
+    "micro_interactions": {
+      "card_hover": "Scale 1.01, subtle blue perimeter glow expansion",
+      "button_click": "Scale 0.97, instant visual feedback",
+      "icon_pulse": "Continuous subtle 2s breathing scale for live alert icons"
+    }
+  },
+  "image_urls": {
+    "server_rack": "https://images.unsplash.com/photo-1680992046626-418f7e910589?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxjeWJlcnNlY3VyaXR5JTIwbmV0d29yayUyMHNlcnZlciUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzg4MjU3MDY1fDA&ixlib=rb-4.1.0&q=85",
+    "security_dashboard": "https://images.unsplash.com/photo-1751448555253-f39c06e29d82?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwzfHxjeWJlcnNlY3VyaXR5JTIwbmV0d29yayUyMHNlcnZlciUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzg4MjU3MDY1fDA&ixlib=rb-4.1.0&q=85",
+    "network_cables": "https://images.unsplash.com/photo-1667264501379-c1537934c7ab?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwbmV0d29yayUyMHNlcnZlciUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzg4MjU3MDY1fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "instructions_to_main_agent": [
+    "Retain all Next.js App Router structure, routes, content data in content.ts, and MongoDB /api/contact logic.",
+    "Implement the new color system, Tailwind custom utilities, glassmorphism card surfaces, and updated Framer Motion specs.",
+    "Ensure all interactive elements have data-testid attributes for E2E verification.",
+    "Ensure no text collision by maintaining minimum p-6 or p-8 inside cards with borders.",
+    "Ensure background color of Header dropdowns and sticky overlays are NEVER completely transparent (use backdrop-blur with minimum 75% dark overlay)."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do not use generic centered layouts or plain flat gray cards.",
+    "Layer depth using z-index hierarchy and multi-layered glow shadows.",
+    "Always specify explicit hover text colors to prevent invisible text states.",
+    "Include data-testid on all key interactive elements.",
+    "Maintain high APCA contrast ratios for text accessibility."
+  ]
 }

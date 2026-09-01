@@ -16,23 +16,27 @@ const companyLinks = [
 
 export default function Footer() {
     return (
-        <footer data-testid="site-footer" className="bg-navy-950 text-slate-300">
-            <div className="container-x border-b border-white/10 py-16 lg:py-20">
+        <footer data-testid="site-footer" className="relative overflow-hidden border-t border-white/10 bg-command-950 text-slate-300">
+            <div className="grid-texture grid-texture-fade absolute inset-0 opacity-40" aria-hidden="true" />
+            <div className="glow-drift absolute -top-24 left-[12%] h-72 w-72 rounded-full bg-cobalt/15 blur-[110px]" aria-hidden="true" />
+            <div className="glow-drift absolute -bottom-24 right-[10%] h-72 w-72 rounded-full bg-crimson/12 blur-[110px]" style={{ animationDelay: "5s" }} aria-hidden="true" />
+
+            <div className="container-x relative z-10 border-b border-white/10 py-16 lg:py-20">
                 <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
                     <div>
                         <p className="overline">Next Step</p>
                         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                            <span className="bg-gradient-to-r from-white via-cyan-200 to-violet-300 bg-clip-text text-transparent">Secure Today. Prepare for Tomorrow.</span>
+                            <span className="bg-gradient-to-r from-white via-cobalt-soft to-crimson bg-clip-text text-transparent">Secure Today. Prepare for Tomorrow.</span>
                         </h2>
                     </div>
                     <CtaButton to="/contact" variant="primary" testId="footer-cta-talk-to-us">Talk to Us</CtaButton>
                 </div>
             </div>
 
-            <div className="container-x grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="container-x relative z-10 grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <Link href="/" className="inline-flex items-center" aria-label="MITS home">
-                        <Image src="/mits-logo-dark.png" alt="MITS" width={200} height={131} className="h-14 w-auto" />
+                        <Image src="/mits-logo-dark.png" alt="MITS" width={200} height={131} className="h-12 w-auto" />
                     </Link>
                     <p className="mt-5 text-sm leading-relaxed text-slate-400">
                         An IT solutions and cybersecurity company focused on building secure, resilient, and future-ready digital environments.
@@ -40,7 +44,7 @@ export default function Footer() {
                 </div>
 
                 <nav aria-label="Company">
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-violet-400">Company</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-cobalt-soft">Company</h3>
                     <ul className="mt-5 space-y-3">
                         {companyLinks.map((l) => (
                             <li key={l.to}>
@@ -54,7 +58,7 @@ export default function Footer() {
                 </nav>
 
                 <nav aria-label="Solutions">
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-emerald-400">Solutions</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-signal">Solutions</h3>
                     <ul className="mt-5 space-y-3">
                         {SOLUTIONS.map((s) => (
                             <li key={s.slug}>
@@ -68,16 +72,16 @@ export default function Footer() {
                 </nav>
 
                 <div>
-                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-amber-400">Contact</h3>
+                    <h3 className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-crimson">Contact</h3>
                     <p className="mt-5 text-sm leading-relaxed text-slate-400">{CONTACT_PLACEHOLDER_NOTE}</p>
-                    <Link href="/contact" data-testid="footer-contact-link" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300">
+                    <Link href="/contact" data-testid="footer-contact-link" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cobalt-soft transition-colors hover:text-white">
                         Request a consultation
                         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                 </div>
             </div>
 
-            <div className="border-t border-white/10">
+            <div className="relative z-10 border-t border-white/10">
                 <div className="container-x flex flex-col items-start justify-between gap-4 py-7 text-xs text-slate-500 sm:flex-row sm:items-center">
                     <p>© {new Date().getFullYear()} MITS. All rights reserved.</p>
                     <div className="flex gap-6">

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 interface CtaButtonProps {
     to?: string;
     children: React.ReactNode;
-    variant?: "primary" | "dark" | "outlineLight" | "outlineDark";
+    variant?: "primary" | "dark" | "outlineLight" | "outlineDark" | "accent";
     testId?: string;
     onClick?: () => void;
     type?: "link" | "button";
@@ -15,18 +15,20 @@ interface CtaButtonProps {
 
 export default function CtaButton({ to = "/", children, variant = "primary", testId, onClick, type = "link", disabled = false }: CtaButtonProps) {
     const base =
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden px-7 py-3.5 font-display text-sm font-semibold tracking-wide transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
+        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl px-7 py-3.5 font-display text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-command-900 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60";
     const styles = {
-        primary: "bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/25 hover:text-white",
-        dark: "bg-navy-900 text-white hover:text-white",
-        outlineLight: "border border-slate-500/60 text-slate-100 hover:text-navy-900",
-        outlineDark: "border border-navy-900/30 text-navy-900 hover:text-white",
+        primary: "bg-gradient-to-r from-cobalt to-crimson text-white shadow-lg shadow-cobalt/30 hover:shadow-cobalt/50 hover:text-white",
+        accent: "bg-crimson text-white shadow-lg shadow-crimson/30 hover:text-white",
+        dark: "glass-strong border border-white/10 text-white hover:text-white hover:border-cobalt/50",
+        outlineLight: "border border-white/20 text-slate-100 hover:text-white hover:border-cobalt/60",
+        outlineDark: "border border-white/20 text-slate-100 hover:text-white hover:border-cobalt/60",
     };
     const fill = {
-        primary: "bg-gradient-to-r from-cyan-500 to-emerald-500",
-        dark: "bg-gradient-to-r from-blue-600 to-violet-600",
-        outlineLight: "bg-slate-100",
-        outlineDark: "bg-navy-900",
+        primary: "bg-gradient-to-r from-signal to-cobalt",
+        accent: "bg-crimson-hover",
+        dark: "bg-gradient-to-r from-cobalt to-crimson",
+        outlineLight: "bg-white/[0.06]",
+        outlineDark: "bg-white/[0.06]",
     };
     const inner = (
         <>

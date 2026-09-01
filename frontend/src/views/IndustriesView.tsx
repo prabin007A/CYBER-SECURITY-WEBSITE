@@ -15,7 +15,7 @@ export default function IndustriesView() {
                 description="Security and technology expertise applied across the sectors that power the economy — with solutions shaped to each environment's unique demands."
                 seed={37}
             />
-            <section data-testid="industries-grid" className="relative overflow-hidden bg-navy-900 py-24 lg:py-32">
+            <section data-testid="industries-grid" className="relative overflow-hidden bg-command-950 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="01"

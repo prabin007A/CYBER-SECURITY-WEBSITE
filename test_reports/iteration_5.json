@@ -1,0 +1,40 @@
+{
+  "summary": "Frontend-only regression + visual sanity for the new dark 'Cyber Command Precision' redesign. All 17 routes render 200 (home, about, cyber-security-services, solutions + 6 detail slugs, industries, technology-partners, blog, blog article, contact, privacy-policy, terms-and-conditions, 404). Header + mobile pill nav, all data-testids, hero pill/headline/CTAs, video modal, scroll-triggered reveals, stat counters, process timeline, solution/industry cards, footer legal links, cookie consent Accept-all all work on 1920px + 390px. Contact form validates 4 invalid fields, submits successfully to POST /api/contact (200), and shows contact-success. One real UI bug found: WordReveal collapses spaces between words -> visible garbled sentence on Home 'Why Cyber Security Matters' section. Everything else looks clean; no page errors; only allowed HMR-502 and framer useScroll warnings in console.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "WordReveal (src/components/Motion.tsx line 30-56)",
+        "issue": "Trailing space is placed INSIDE each inline-block motion.span. Browsers collapse trailing whitespace inside inline-block elements, so the animated blockquote on Home ('Why Cyber Security Matters') renders as 'Cyberthreatsareevolvingrapidly.Proactivepreventionisalwaysmoreeffectiveandcost-efficientthanrecovery' with no spaces between words. TitleReveal already solves this by using a non-breaking space ('\\u00A0') as a sibling of the inline-block; WordReveal should do the same. One-line fix: replace `{i < words.length - 1 ? \" \" : \"\"}` inside the motion.span with `{word}` only, and render `{i < words.length - 1 ? \"\\u00A0\" : \"\"}` OUTSIDE the motion.span (or set whiteSpace:'pre' on the wrapper).",
+        "selector": "span[aria-label^=\"Cyber threats are evolving\"]",
+        "priority": "HIGH"
+      },
+      {
+        "component": "ContactForm data-testids",
+        "issue": "Form field testids do not match the names listed in the review request (`contact-name`, `contact-email`, `contact-phone`, `contact-message`, `contact-submit`). Actual testids in code are `input-full-name`, `input-email`, `input-phone`, `input-message`, `contact-submit-button`. Fields work, but if the acceptance checklist expects those exact names, either the code or the checklist should be aligned.",
+        "selector": "[data-testid=\"contact-form\"]",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix WordReveal spacing bug in /app/frontend/src/components/Motion.tsx (put the separator space OUTSIDE the inline-block span, or use \\u00A0 like TitleReveal does).",
+    "Optionally align ContactForm field data-testids with the naming used in the review checklist (contact-name / contact-email / contact-phone / contact-message / contact-submit) OR update the checklist."
+  ],
+  "critical_code_review_comments": [
+    "Motion.tsx WordReveal: trailing space inside inline-block collapses in the browser -> real user-visible bug on Home. TitleReveal (same file) already handles this correctly with \\u00A0 as a sibling, use the same pattern.",
+    "Header.tsx: `scrolled` state (window.scrollY > 24) is applied to the inner pill's className, not the outer <header>. Testing must inspect the inner div, not the header element itself (works correctly, just documenting for next agent).",
+    "Cards.tsx BlogCard: the whole card is a <Link> with data-testid=`blog-card-{slug}`, so `[data-testid^=\"blog-card-\"] a` will not find a nested anchor. Use `[data-testid^=\"blog-card-\"]` directly.",
+    "Framer Motion warning 'container has a non-static position' fires multiple times on Home/other pages from useScroll targets. Not a functional issue, but adding `position: relative` on the scroll target element(s) will clean up dev-console noise."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "not-tested", "frontend": "~95% (1 real UI bug + 1 naming mismatch out of ~40 checks)"},
+  "seed_data_creation": "None. Only 1 contact form POST submitted (TEST User / test@example.com).",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Redesign functional integrity is solid on both desktop (1920) and mobile (390). Only known issue to reverify after main agent fix is the WordReveal spacing on Home /'Why Cyber Security Matters' blockquote — check spans[aria-label^='Cyber threats are evolving'].innerText contains proper spaces. All other flows (nav, mobile menu + body-scroll-lock, cookie consent, hero video modal, contact form success/validation, all 17 routes, blog article, footer links) already passed and don't need re-testing unless code in those areas changes.",
+  "rca of the issue": "WordReveal renders each word inside a motion.span with className='inline-block' and appends ' ' (a plain space) as the last text node INSIDE that same inline-block. Because the space is the trailing character inside an inline-block, browsers collapse it (CSS whitespace-collapsing rules for inline-block boundaries). Result: all words render flush against each other. The sibling component TitleReveal in the same file avoids this by putting a non-breaking space ('\\u00A0') OUTSIDE the inline-block motion.span. Reproduction: open https://mits-stage.preview.emergentagent.com/ , scroll to section '03 Why Cyber Security Matters'. Mitigation: mirror TitleReveal's structure in WordReveal — wrap the motion.span with a parent span and put `\\u00A0` between siblings, or set style={{whiteSpace:'pre'}} on the outer motion.span."
+}

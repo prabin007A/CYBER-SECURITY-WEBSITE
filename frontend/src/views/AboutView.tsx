@@ -18,26 +18,26 @@ export default function AboutView() {
                 seed={17}
             />
 
-            <section data-testid="about-we-are" className="bg-white py-24 lg:py-32">
+            <section data-testid="about-we-are" className="bg-command-900 py-24 lg:py-32">
                 <div className="container-x grid items-center gap-14 lg:grid-cols-2">
                     <Reveal>
                         <div className="flex items-center gap-4">
-                            <span className="font-mono text-xs tracking-[0.25em] text-cyan-600">01</span>
-                            <span className="h-px w-10 bg-cyan-500/50" aria-hidden="true" />
+                            <span className="font-mono text-xs tracking-[0.25em] text-signal">01</span>
+                            <span className="h-px w-10 bg-cobalt/50" aria-hidden="true" />
                             <p className="overline">Who We Are</p>
                         </div>
-                        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl lg:text-5xl">
+                        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
                             We Are
                         </h2>
-                        <p className="mt-7 font-display text-xl font-medium leading-relaxed text-navy-800 sm:text-2xl">
+                        <p className="mt-7 font-display text-xl font-medium leading-relaxed text-slate-200 sm:text-2xl">
                             An IT solutions and cybersecurity company focused on building secure, resilient, and future-ready digital environments.
                         </p>
-                        <p className="mt-6 text-base leading-relaxed text-slate-600">
+                        <p className="mt-6 text-base leading-relaxed text-slate-400">
                             By combining technology expertise with a business-focused approach, we help organizations improve performance, reduce risk, and embrace digital transformation with confidence.
                         </p>
                     </Reveal>
                     <Reveal delay={0.15} className="relative">
-                        <div className="relative overflow-hidden border border-navy-900/10 bg-navy-900 p-10">
+                        <div className="relative overflow-hidden border border-white/10 bg-command-950 p-10">
                             <NetworkVisual density={14} seed={29} className="absolute inset-0 h-full w-full opacity-40" />
                             <ShieldMark className="relative z-10 mx-auto w-56 float-soft" />
                         </div>
@@ -45,22 +45,22 @@ export default function AboutView() {
                 </div>
             </section>
 
-            <section data-testid="about-mission-vision" className="bg-slate-50 py-24 lg:py-32">
+            <section data-testid="about-mission-vision" className="bg-command-950 py-24 lg:py-32">
                 <div className="container-x grid gap-6 lg:grid-cols-2">
                     <Reveal className="h-full">
-                        <div data-testid="mission-card" className="group h-full border border-navy-900/10 bg-white p-10 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:shadow-[0_20px_50px_rgba(11,17,32,0.10)] lg:p-12">
+                        <div data-testid="mission-card" className="group h-full border border-white/10 bg-white/[0.03] p-10 transition-all duration-300 hover:-translate-y-1 hover:border-cobalt/50 hover:shadow-[0_20px_50px_rgba(30,80,255,0.22)] lg:p-12">
                             <div className="flex items-center justify-between">
                                 <p className="overline">Mission</p>
-                                <span className="font-display text-5xl font-extrabold text-navy-900/[0.07]">02</span>
+                                <span className="font-display text-5xl font-extrabold text-slate-100/[0.07]">02</span>
                             </div>
-                            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">Mission</h2>
-                            <p className="mt-5 text-base leading-relaxed text-slate-600">
+                            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-100 sm:text-3xl">Mission</h2>
+                            <p className="mt-5 text-base leading-relaxed text-slate-400">
                                 To empower businesses with secure, reliable, and innovative technology that simplifies operations, reduces risk, and drives sustainable growth.
                             </p>
                         </div>
                     </Reveal>
                     <Reveal delay={0.12} className="h-full">
-                        <div data-testid="vision-card" className="group h-full border border-navy-900/10 bg-navy-900 p-10 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 lg:p-12">
+                        <div data-testid="vision-card" className="group h-full border border-white/10 bg-command-950 p-10 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 lg:p-12">
                             <div className="flex items-center justify-between">
                                 <p className="overline">Vision</p>
                                 <span className="font-display text-5xl font-extrabold text-white/[0.07]">03</span>
@@ -74,7 +74,7 @@ export default function AboutView() {
                 </div>
             </section>
 
-            <section data-testid="about-values" className="bg-white py-24 lg:py-32">
+            <section data-testid="about-values" className="bg-command-900 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="04"
@@ -90,7 +90,7 @@ export default function AboutView() {
                 </div>
             </section>
 
-            <section data-testid="about-why-choose-us" className="relative overflow-hidden bg-navy-900 py-24 lg:py-32">
+            <section data-testid="about-why-choose-us" className="relative overflow-hidden bg-command-950 py-24 lg:py-32">
                 <NetworkVisual density={12} seed={33} className="absolute inset-0 h-full w-full opacity-15" />
                 <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-2">
                     <SectionHeader
@@ -105,7 +105,7 @@ export default function AboutView() {
                             const Icon = cap.icon;
                             return (
                                 <div key={cap.name} data-testid={`capability-${cap.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="group flex flex-col items-center gap-3 border border-white/10 bg-white/[0.03] px-4 py-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40">
-                                    <span className="flex h-11 w-11 items-center justify-center border border-cyan-400/30 text-cyan-400 transition-colors duration-300 group-hover:bg-cyan-400 group-hover:text-navy-900">
+                                    <span className="flex h-11 w-11 items-center justify-center border border-cyan-400/30 text-cyan-400 transition-colors duration-300 group-hover:bg-cyan-400 group-hover:text-slate-100">
                                         <Icon className="h-5 w-5" aria-hidden="true" />
                                     </span>
                                     <span className="font-display text-sm font-semibold text-slate-200">{cap.name}</span>
@@ -116,7 +116,7 @@ export default function AboutView() {
                 </div>
             </section>
 
-            <section data-testid="about-methodology" className="bg-slate-50 py-24 lg:py-32">
+            <section data-testid="about-methodology" className="bg-command-950 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="06"
