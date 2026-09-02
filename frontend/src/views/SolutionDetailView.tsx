@@ -16,7 +16,7 @@ export default function SolutionDetailView({ slug }: { slug: string }) {
 
     return (
         <>
-            <section className="relative overflow-hidden bg-command-950 pb-20 pt-40 lg:pb-28 lg:pt-48">
+            <section className="relative overflow-hidden bg-navy-900 pb-20 pt-40 lg:pb-28 lg:pt-48">
                 <NetworkVisual density={14} seed={51} className="absolute inset-0 h-full w-full opacity-25" />
                 <div className="container-x relative z-10">
                     <Reveal>
@@ -39,23 +39,23 @@ export default function SolutionDetailView({ slug }: { slug: string }) {
                 </div>
             </section>
 
-            <section data-testid="solution-overview" className="bg-command-900 py-24 lg:py-32">
+            <section data-testid="solution-overview" className="bg-white py-24 lg:py-32">
                 <div className="container-x grid gap-14 lg:grid-cols-2">
                     <Reveal>
                         <p className="overline">Overview</p>
-                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-100">How It Helps Your Business</h2>
-                        <p className="mt-6 text-base leading-relaxed text-slate-400">{solution.overview}</p>
+                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">How It Helps Your Business</h2>
+                        <p className="mt-6 text-base leading-relaxed text-slate-600">{solution.overview}</p>
                     </Reveal>
                     <Reveal delay={0.12}>
                         <p className="overline">Focus Areas</p>
-                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-100">What We Focus On</h2>
+                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">What We Focus On</h2>
                         <ul className="mt-6 space-y-4">
                             {solution.focus.map((item) => (
-                                <li key={item} className="flex items-start gap-4 border border-white/10 bg-white/[0.05] p-4">
-                                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-cobalt/10 text-signal">
+                                <li key={item} className="flex items-start gap-4 border border-navy-900/10 bg-slate-50 p-4">
+                                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-cyan-500/10 text-cyan-600">
                                         <Check className="h-4 w-4" aria-hidden="true" />
                                     </span>
-                                    <span className="text-sm leading-relaxed text-slate-400">{item}</span>
+                                    <span className="text-sm leading-relaxed text-slate-700">{item}</span>
                                 </li>
                             ))}
                         </ul>
@@ -63,11 +63,11 @@ export default function SolutionDetailView({ slug }: { slug: string }) {
                 </div>
             </section>
 
-            <section className="bg-command-950 py-24 lg:py-32">
+            <section className="bg-slate-50 py-24 lg:py-32">
                 <div className="container-x">
                     <Reveal>
                         <p className="overline">Related</p>
-                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-100">Explore More Solutions</h2>
+                        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">Explore More Solutions</h2>
                     </Reveal>
                     <Stagger className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
                         {related.map((s, i) => (

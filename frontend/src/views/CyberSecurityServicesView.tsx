@@ -29,7 +29,7 @@ export default function CyberSecurityServicesView() {
                 <CtaButton to="/contact" variant="primary" testId="cyber-hero-cta">Request Consultation</CtaButton>
             </PageHero>
 
-            <section data-testid="cyber-overview" className="bg-command-900 py-24 lg:py-32">
+            <section data-testid="cyber-overview" className="bg-white py-24 lg:py-32">
                 <div className="container-x grid items-center gap-14 lg:grid-cols-2">
                     <Reveal>
                         <SectionHeader
@@ -37,15 +37,15 @@ export default function CyberSecurityServicesView() {
                             overline="Overview"
                             title="Defense Built Around Your Business"
                         />
-                        <p className="mt-6 text-base leading-relaxed text-slate-400">
+                        <p className="mt-6 text-base leading-relaxed text-slate-600">
                             Cybersecurity works best when it is proactive, layered, and aligned with how your organization actually operates. Our services focus on understanding your environment, reducing exposure, and building the capability to detect and respond before threats become incidents.
                         </p>
-                        <p className="mt-4 text-base leading-relaxed text-slate-400">
+                        <p className="mt-4 text-base leading-relaxed text-slate-600">
                             From continuous monitoring to structured incident response, every capability is designed to keep your business secure, compliant, and confidently moving forward.
                         </p>
                     </Reveal>
                     <Reveal delay={0.15}>
-                        <div className="relative border border-white/10 bg-white/[0.05] p-10">
+                        <div className="relative border border-navy-900/10 bg-slate-50 p-10">
                             <div className="float-soft mx-auto max-w-sm">
                                 <ShieldMark className="w-full" />
                             </div>
@@ -54,7 +54,7 @@ export default function CyberSecurityServicesView() {
                 </div>
             </section>
 
-            <section data-testid="cyber-capabilities" className="bg-command-950 py-24 lg:py-32">
+            <section data-testid="cyber-capabilities" className="bg-slate-50 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="02"
@@ -70,7 +70,7 @@ export default function CyberSecurityServicesView() {
                 </div>
             </section>
 
-            <section data-testid="cyber-benefits" className="relative overflow-hidden bg-command-950 py-24 lg:py-32">
+            <section data-testid="cyber-benefits" className="relative overflow-hidden bg-navy-900 py-24 lg:py-32">
                 <div className="container-x grid items-center gap-14 lg:grid-cols-2">
                     <SectionHeader
                         index="03"
@@ -81,7 +81,7 @@ export default function CyberSecurityServicesView() {
                     <Stagger className="space-y-4">
                         {BENEFITS.map((benefit) => (
                             <div key={benefit} className="flex items-start gap-4 border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-cyan-400/40">
-                                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-cobalt/15 text-cyan-400">
+                                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-cyan-500/15 text-cyan-400">
                                     <Check className="h-4 w-4" aria-hidden="true" />
                                 </span>
                                 <p className="text-sm leading-relaxed text-slate-300">{benefit}</p>

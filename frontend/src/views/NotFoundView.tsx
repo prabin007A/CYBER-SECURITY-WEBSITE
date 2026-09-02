@@ -5,7 +5,7 @@ import NetworkVisual from "@/components/NetworkVisual";
 
 export default function NotFoundView() {
     return (
-        <section data-testid="not-found-page" className="relative flex min-h-[100svh] items-center overflow-hidden bg-command-950 pt-24">
+        <section data-testid="not-found-page" className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-900 pt-24">
             <NetworkVisual density={14} seed={71} className="absolute inset-0 h-full w-full opacity-25" />
             <div className="container-x relative z-10 py-20">
                 <p className="overline">Error 404</p>

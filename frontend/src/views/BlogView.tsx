@@ -44,11 +44,11 @@ export default function BlogView() {
                 seed={53}
             />
 
-            <section data-testid="blog-listing" className="bg-command-950 py-20 lg:py-28">
+            <section data-testid="blog-listing" className="bg-slate-50 py-20 lg:py-28">
                 <div className="container-x">
                     <Reveal className="flex items-start gap-3 border border-blue-600/20 bg-blue-600/5 p-4">
                         <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />
-                        <p className="text-xs leading-relaxed text-slate-400">
+                        <p className="text-xs leading-relaxed text-slate-600">
                             Articles shown are clearly-labeled demo content for preview purposes. Official MITS publications will appear here once released.
                         </p>
                     </Reveal>
@@ -63,7 +63,7 @@ export default function BlogView() {
                                 onChange={(e) => search(e.target.value)}
                                 placeholder="Search articles…"
                                 aria-label="Search articles"
-                                className="w-full border border-white/12 bg-white/[0.03] py-3 pl-11 pr-4 text-sm text-slate-100 placeholder:text-slate-400 transition-colors focus:border-cobalt focus:outline-none focus:ring-2 focus:ring-cobalt/30"
+                                className="w-full border border-navy-900/15 bg-white py-3 pl-11 pr-4 text-sm text-navy-900 placeholder:text-slate-400 transition-colors focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
                             />
                         </div>
                         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
@@ -76,8 +76,8 @@ export default function BlogView() {
                                     aria-pressed={category === c}
                                     className={`border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.15em] transition-all duration-300 ${
                                         category === c
-                                            ? "border-navy-900 bg-command-950 text-white"
-                                            : "border-white/12 bg-white/[0.03] text-slate-400 hover:border-cobalt/60 hover:text-slate-100"
+                                            ? "border-navy-900 bg-navy-900 text-white"
+                                            : "border-navy-900/15 bg-white text-slate-600 hover:border-cyan-500/60 hover:text-navy-900"
                                     }`}
                                 >
                                     {c}
@@ -91,10 +91,10 @@ export default function BlogView() {
                             <Link
                                 href={`/blog/${featured.slug}`}
                                 data-testid={`blog-featured-${featured.slug}`}
-                                className="group grid overflow-hidden border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-cobalt/50 hover:shadow-[0_24px_60px_rgba(30,80,255,0.22)] lg:grid-cols-2"
+                                className="group grid overflow-hidden border border-navy-900/10 bg-white transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_24px_60px_rgba(11,17,32,0.10)] lg:grid-cols-2"
                             >
-                                <div className="relative flex min-h-[240px] items-end overflow-hidden bg-command-950 p-8">
-                                    <div className="glow-drift absolute -left-12 -top-12 h-64 w-64 rounded-full bg-cobalt/25 blur-3xl" aria-hidden="true" />
+                                <div className="relative flex min-h-[240px] items-end overflow-hidden bg-navy-900 p-8">
+                                    <div className="glow-drift absolute -left-12 -top-12 h-64 w-64 rounded-full bg-cyan-500/25 blur-3xl" aria-hidden="true" />
                                     <div className="glow-drift absolute -bottom-16 -right-10 h-60 w-60 rounded-full bg-blue-600/25 blur-3xl" style={{ animationDelay: "4s" }} aria-hidden="true" />
                                     <span className="relative z-10 border border-cyan-400/40 bg-navy-950/60 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-300">
                                         Featured · {featured.category}
@@ -104,10 +104,10 @@ export default function BlogView() {
                                     <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">
                                         {new Date(featured.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · Demo content
                                     </p>
-                                    <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-100 transition-colors group-hover:text-blue-600 sm:text-3xl">
+                                    <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-navy-900 transition-colors group-hover:text-blue-600 sm:text-3xl">
                                         {featured.title}
                                     </h2>
-                                    <p className="mt-4 text-sm leading-relaxed text-slate-400">{featured.excerpt}</p>
+                                    <p className="mt-4 text-sm leading-relaxed text-slate-600">{featured.excerpt}</p>
                                     <span className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-blue-600">
                                         Read Article
                                         <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
@@ -125,9 +125,9 @@ export default function BlogView() {
                         </Stagger>
                     ) : (
                         !featured && (
-                            <div data-testid="blog-empty-state" className="mt-12 border border-white/10 bg-white/[0.03] p-16 text-center">
-                                <p className="font-display text-xl font-bold text-slate-100">No articles found</p>
-                                <p className="mt-2 text-sm text-slate-400">Try a different search term or category.</p>
+                            <div data-testid="blog-empty-state" className="mt-12 border border-navy-900/10 bg-white p-16 text-center">
+                                <p className="font-display text-xl font-bold text-navy-900">No articles found</p>
+                                <p className="mt-2 text-sm text-slate-500">Try a different search term or category.</p>
                             </div>
                         )
                     )}
@@ -140,7 +140,7 @@ export default function BlogView() {
                                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                                 disabled={currentPage === 1}
                                 aria-label="Previous page"
-                                className="flex h-11 w-11 items-center justify-center border border-white/12 bg-white/[0.03] text-slate-100 transition-colors hover:border-cobalt/60 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="flex h-11 w-11 items-center justify-center border border-navy-900/15 bg-white text-navy-900 transition-colors hover:border-cyan-500/60 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <ChevronLeft className="h-4 w-4" aria-hidden="true" />
                             </button>
@@ -153,8 +153,8 @@ export default function BlogView() {
                                     aria-current={p === currentPage ? "page" : undefined}
                                     className={`h-11 w-11 border font-mono text-sm transition-colors ${
                                         p === currentPage
-                                            ? "border-navy-900 bg-command-950 text-white"
-                                            : "border-white/12 bg-white/[0.03] text-slate-100 hover:border-cobalt/60"
+                                            ? "border-navy-900 bg-navy-900 text-white"
+                                            : "border-navy-900/15 bg-white text-navy-900 hover:border-cyan-500/60"
                                     }`}
                                 >
                                     {p}
@@ -166,7 +166,7 @@ export default function BlogView() {
                                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                                 disabled={currentPage === totalPages}
                                 aria-label="Next page"
-                                className="flex h-11 w-11 items-center justify-center border border-white/12 bg-white/[0.03] text-slate-100 transition-colors hover:border-cobalt/60 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="flex h-11 w-11 items-center justify-center border border-navy-900/15 bg-white text-navy-900 transition-colors hover:border-cyan-500/60 disabled:cursor-not-allowed disabled:opacity-40"
                             >
                                 <ChevronRight className="h-4 w-4" aria-hidden="true" />
                             </button>

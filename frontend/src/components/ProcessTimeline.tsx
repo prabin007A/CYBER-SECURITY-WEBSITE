@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import type { ProcessStep } from "@/data/content";
 
-export default function ProcessTimeline({ steps }: { steps: ProcessStep[]; dark?: boolean }) {
+export default function ProcessTimeline({ steps, dark = false }: { steps: ProcessStep[]; dark?: boolean }) {
     return (
         <div className="relative">
             {/* Desktop: horizontal */}
             <div className="relative hidden lg:block">
-                <div className="absolute left-0 right-0 top-6 h-px bg-white/10" aria-hidden="true" />
+                <div className={`absolute left-0 right-0 top-6 h-px ${dark ? "bg-white/10" : "bg-navy-900/10"}`} aria-hidden="true" />
                 <motion.div
-                    className="absolute left-0 top-6 h-px origin-left bg-gradient-to-r from-cobalt via-signal to-crimson"
+                    className="absolute left-0 top-6 h-px origin-left bg-gradient-to-r from-cyan-500 via-violet-500 to-rose-500"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -20,16 +20,16 @@ export default function ProcessTimeline({ steps }: { steps: ProcessStep[]; dark?
                 />
                 <ol className={`grid gap-8 ${steps.length === 6 ? "grid-cols-6" : "grid-cols-4"}`}>
                     {steps.map((step, i) => (
-                        <Step key={step.number} step={step} index={i} horizontal />
+                        <Step key={step.number} step={step} index={i} dark={dark} horizontal />
                     ))}
                 </ol>
             </div>
 
             {/* Mobile / tablet: vertical */}
             <div className="relative lg:hidden">
-                <div className="absolute bottom-4 left-6 top-4 w-px bg-white/10" aria-hidden="true" />
+                <div className={`absolute bottom-4 left-6 top-4 w-px ${dark ? "bg-white/10" : "bg-navy-900/10"}`} aria-hidden="true" />
                 <motion.div
-                    className="absolute left-6 top-4 w-px origin-top bg-gradient-to-b from-cobalt via-signal to-crimson"
+                    className="absolute left-6 top-4 w-px origin-top bg-gradient-to-b from-cyan-500 via-violet-500 to-rose-500"
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: true, margin: "-60px" }}
@@ -39,7 +39,7 @@ export default function ProcessTimeline({ steps }: { steps: ProcessStep[]; dark?
                 />
                 <ol className="space-y-10">
                     {steps.map((step, i) => (
-                        <Step key={step.number} step={step} index={i} />
+                        <Step key={step.number} step={step} index={i} dark={dark} />
                     ))}
                 </ol>
             </div>
@@ -48,14 +48,14 @@ export default function ProcessTimeline({ steps }: { steps: ProcessStep[]; dark?
 }
 
 const STEP_ACCENTS = [
-    "border-cobalt/40 text-cobalt-soft",
-    "border-crimson/40 text-crimson",
-    "border-signal/40 text-signal",
-    "border-violet-400/40 text-violet-300",
-    "border-emerald-400/40 text-emerald-300",
+    { dark: "border-cyan-400/40 text-cyan-400", light: "border-cyan-500/40 text-cyan-600" },
+    { dark: "border-violet-400/40 text-violet-400", light: "border-violet-500/40 text-violet-600" },
+    { dark: "border-emerald-400/40 text-emerald-400", light: "border-emerald-500/40 text-emerald-600" },
+    { dark: "border-amber-400/40 text-amber-400", light: "border-amber-500/40 text-amber-600" },
+    { dark: "border-rose-400/40 text-rose-400", light: "border-rose-500/40 text-rose-600" },
 ];
 
-const Step = ({ step, index, horizontal }: { step: ProcessStep; index: number; horizontal?: boolean }) => {
+const Step = ({ step, index, dark, horizontal }: { step: ProcessStep; index: number; dark: boolean; horizontal?: boolean }) => {
     const Icon = step.icon;
     const a = STEP_ACCENTS[index % STEP_ACCENTS.length];
     return (
@@ -67,16 +67,20 @@ const Step = ({ step, index, horizontal }: { step: ProcessStep; index: number; h
             transition={{ duration: 0.6, delay: 0.15 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
             className={horizontal ? "relative pt-16" : "relative pl-16"}
         >
-            <span className={`absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-xl border bg-command-800 ${a}`}>
+            <span
+                className={`absolute flex h-12 w-12 items-center justify-center border transition-colors ${
+                    dark ? `bg-navy-900 ${a.dark}` : `bg-white ${a.light}`
+                } ${horizontal ? "left-0 top-0" : "left-0 top-0"}`}
+            >
                 <Icon className="h-5 w-5" aria-hidden="true" />
             </span>
-            <span className={`font-mono text-xs tracking-[0.25em] ${a.split(" ")[1]}`}>
+            <span className={`font-mono text-xs tracking-[0.25em] ${dark ? a.dark : a.light}`}>
                 {step.number}
             </span>
-            <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-white">
+            <h3 className={`mt-2 font-display text-lg font-bold tracking-tight ${dark ? "text-white" : "text-navy-900"}`}>
                 {step.title}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-400">
+            <p className={`mt-2 text-sm leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}>
                 {step.description}
             </p>
         </motion.li>

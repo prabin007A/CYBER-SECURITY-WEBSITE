@@ -22,16 +22,16 @@ export default function ContactView() {
                 seed={61}
             />
 
-            <section data-testid="contact-section" className="bg-command-950 py-24 lg:py-32">
+            <section data-testid="contact-section" className="bg-slate-50 py-24 lg:py-32">
                 <div className="container-x grid gap-14 lg:grid-cols-5">
                     <Reveal className="lg:col-span-3">
-                        <div className="border border-white/10 bg-white/[0.03] p-8 lg:p-12">
+                        <div className="border border-navy-900/10 bg-white p-8 lg:p-12">
                             <p className="overline">Request Consultation</p>
-                            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-100 sm:text-3xl">
+                            <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">
                                 Start the Conversation
                             </h2>
-                            <p className="mt-3 text-sm leading-relaxed text-slate-400">
-                                Fields marked <span className="text-signal">*</span> are required.
+                            <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                Fields marked <span className="text-cyan-600">*</span> are required.
                             </p>
                             <div className="mt-8">
                                 <ContactForm />
@@ -45,25 +45,25 @@ export default function ContactView() {
                                 const Icon = step.icon;
                                 return (
                                     <StaggerItem key={step.title}>
-                                        <div data-testid={`contact-step-${i + 1}`} className="border border-white/10 bg-white/[0.03] p-7">
+                                        <div data-testid={`contact-step-${i + 1}`} className="border border-navy-900/10 bg-white p-7">
                                             <div className="flex items-center gap-4">
-                                                <span className="flex h-11 w-11 items-center justify-center bg-command-950 text-cyan-400">
+                                                <span className="flex h-11 w-11 items-center justify-center bg-navy-900 text-cyan-400">
                                                     <Icon className="h-5 w-5" aria-hidden="true" />
                                                 </span>
                                                 <div>
-                                                    <span className="font-mono text-[11px] tracking-[0.2em] text-signal">STEP 0{i + 1}</span>
-                                                    <h3 className="font-display text-base font-bold text-slate-100">{step.title}</h3>
+                                                    <span className="font-mono text-[11px] tracking-[0.2em] text-cyan-600">STEP 0{i + 1}</span>
+                                                    <h3 className="font-display text-base font-bold text-navy-900">{step.title}</h3>
                                                 </div>
                                             </div>
-                                            <p className="mt-4 text-sm leading-relaxed text-slate-400">{step.text}</p>
+                                            <p className="mt-4 text-sm leading-relaxed text-slate-600">{step.text}</p>
                                         </div>
                                     </StaggerItem>
                                 );
                             })}
                             <StaggerItem>
-                                <div className="border border-dashed border-white/15 bg-white/[0.03] p-7">
+                                <div className="border border-dashed border-navy-900/20 bg-white p-7">
                                     <p className="overline">Direct Contact</p>
-                                    <p className="mt-3 text-sm leading-relaxed text-slate-400">{CONTACT_PLACEHOLDER_NOTE}</p>
+                                    <p className="mt-3 text-sm leading-relaxed text-slate-500">{CONTACT_PLACEHOLDER_NOTE}</p>
                                 </div>
                             </StaggerItem>
                         </Stagger>

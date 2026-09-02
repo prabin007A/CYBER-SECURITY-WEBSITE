@@ -8,9 +8,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
 
-const Logo = () => (
+const Logo = ({ dark }: { dark: boolean }) => (
     <Link href="/" data-testid="header-logo" className="flex items-center" aria-label="MITS home">
-        <Image src="/mits-logo-dark.png" alt="MITS" width={200} height={131} className="h-10 w-auto" priority />
+        <Image
+            src={dark ? "/mits-logo-dark.png" : "/mits-logo.png"}
+            alt="MITS"
+            width={200}
+            height={131}
+            className="h-14 w-auto"
+            priority
+        />
     </Link>
 );
 
@@ -35,18 +42,19 @@ export default function Header() {
         return () => { document.body.style.overflow = ""; };
     }, [open]);
 
-    return (
-        <header data-testid="site-header" className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-            <div
-                className={`container-x flex h-[64px] items-center justify-between rounded-full border px-4 transition-all duration-500 sm:px-6 ${
-                    scrolled || open
-                        ? "glass-strong border-cobalt/25 shadow-[0_12px_40px_-10px_rgba(30,80,255,0.35)]"
-                        : "glass border-white/10"
-                }`}
-            >
-                <Logo />
+    const dark = !scrolled && !open;
 
-                <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
+    return (
+        <header
+            data-testid="site-header"
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+                scrolled ? "border-b border-navy-900/10 bg-white/90 shadow-[0_8px_30px_rgba(11,17,32,0.06)] backdrop-blur-xl" : "bg-transparent"
+            }`}
+        >
+            <div className="container-x flex h-[76px] items-center justify-between">
+                <Logo dark={dark} />
+
+                <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary">
                     {NAV_LINKS.map((link) => {
                         const isActive = link.to === "/" ? pathname === "/" : pathname.startsWith(link.to);
                         return (
@@ -54,8 +62,10 @@ export default function Header() {
                                 key={link.to}
                                 href={link.to}
                                 data-testid={`nav-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                                className={`relative py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-gradient-to-r after:from-cobalt after:to-crimson after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                                    isActive ? "text-white after:scale-x-100" : "text-slate-300 hover:text-white"
+                                className={`relative py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-gradient-to-r after:from-cyan-400 after:to-violet-500 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                                    isActive
+                                        ? `after:scale-x-100 ${dark ? "text-white" : "text-navy-900"}`
+                                        : dark ? "text-slate-300 hover:text-white" : "text-slate-600 hover:text-navy-900"
                                 }`}
                             >
                                 {link.label}
@@ -68,9 +78,9 @@ export default function Header() {
                     <Link
                         href="/contact"
                         data-testid="header-cta-request-consultation"
-                        className="group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-cobalt to-crimson px-6 py-2.5 font-display text-[13px] font-semibold tracking-wide text-white shadow-lg shadow-cobalt/25 transition-all hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
+                        className="group relative inline-flex items-center overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-2.5 font-display text-[13px] font-semibold tracking-wide text-white shadow-lg shadow-indigo-500/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                     >
-                        <span className="absolute inset-0 origin-bottom scale-y-0 bg-gradient-to-r from-signal to-cobalt transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
+                        <span className="absolute inset-0 origin-bottom scale-y-0 bg-gradient-to-r from-cyan-500 to-emerald-500 transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
                         <span className="relative z-10">Request Consultation</span>
                     </Link>
                 </div>
@@ -81,7 +91,7 @@ export default function Header() {
                     onClick={() => setOpen((v) => !v)}
                     aria-expanded={open}
                     aria-label={open ? "Close menu" : "Open menu"}
-                    className="flex h-10 w-10 items-center justify-center text-white transition-colors xl:hidden"
+                    className={`flex h-11 w-11 items-center justify-center transition-colors xl:hidden ${dark ? "text-white" : "text-navy-900"}`}
                 >
                     {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
@@ -95,7 +105,7 @@ export default function Header() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.25 }}
-                        className="fixed inset-0 top-0 z-40 bg-command-950/70 backdrop-blur-sm xl:hidden"
+                        className="fixed inset-0 top-[76px] z-40 bg-navy-950/60 backdrop-blur-sm xl:hidden"
                         onClick={() => setOpen(false)}
                     >
                         <motion.nav
@@ -103,15 +113,10 @@ export default function Header() {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                            className="glass-strong absolute right-0 top-0 flex h-full w-[82%] max-w-sm flex-col overflow-y-auto border-l border-white/10 px-8 py-8"
+                            className="absolute right-0 top-0 flex h-full w-[82%] max-w-sm flex-col overflow-y-auto bg-navy-900 px-8 py-10"
                             aria-label="Mobile"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="mb-6 flex justify-end">
-                                <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="flex h-10 w-10 items-center justify-center text-white">
-                                    <X className="h-6 w-6" />
-                                </button>
-                            </div>
                             {NAV_LINKS.map((link, i) => {
                                 const isActive = link.to === "/" ? pathname === "/" : pathname.startsWith(link.to);
                                 return (
@@ -124,7 +129,7 @@ export default function Header() {
                                         <Link
                                             href={link.to}
                                             data-testid={`mobile-nav-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                                            className={`block border-b border-white/10 py-4 font-display text-lg font-semibold ${isActive ? "text-cobalt-soft" : "text-slate-200"}`}
+                                            className={`block border-b border-white/10 py-4 font-display text-lg font-semibold ${isActive ? "text-cyan-400" : "text-slate-200"}`}
                                         >
                                             {link.label}
                                         </Link>
@@ -140,7 +145,7 @@ export default function Header() {
                                 <Link
                                     href="/contact"
                                     data-testid="mobile-cta-request-consultation"
-                                    className="block rounded-full bg-gradient-to-r from-cobalt to-crimson px-6 py-4 text-center font-display text-sm font-semibold text-white"
+                                    className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-4 text-center font-display text-sm font-semibold text-white"
                                 >
                                     Request Consultation
                                 </Link>

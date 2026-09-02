@@ -15,7 +15,7 @@ export default function SolutionsView() {
                 description="Six capability areas that work together to make your organization more secure, more intelligent, and ready to scale."
                 seed={23}
             />
-            <section data-testid="solutions-grid" className="bg-command-950 py-24 lg:py-32">
+            <section data-testid="solutions-grid" className="bg-slate-50 py-24 lg:py-32">
                 <div className="container-x">
                     <SectionHeader
                         index="01"

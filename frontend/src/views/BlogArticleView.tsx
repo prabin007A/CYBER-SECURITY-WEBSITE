@@ -15,8 +15,8 @@ export default function BlogArticleView({ slug }: { slug: string }) {
     return (
         <>
             <article data-testid="blog-article">
-                <section className="relative overflow-hidden bg-command-950 pb-16 pt-40 lg:pb-24 lg:pt-48">
-                    <div className="glow-drift absolute -right-20 top-10 h-72 w-72 rounded-full bg-cobalt/15 blur-3xl" aria-hidden="true" />
+                <section className="relative overflow-hidden bg-navy-900 pb-16 pt-40 lg:pb-24 lg:pt-48">
+                    <div className="glow-drift absolute -right-20 top-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" aria-hidden="true" />
                     <div className="container-x relative z-10 max-w-4xl">
                         <Reveal>
                             <Link href="/blog" data-testid="back-to-blog" className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-400 transition-colors hover:text-cyan-400">
@@ -33,41 +33,41 @@ export default function BlogArticleView({ slug }: { slug: string }) {
                             <h1 className="mt-6 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
                                 {post.title}
                             </h1>
-                            <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+                            <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
                                 By {post.author}
                             </p>
                         </Reveal>
                     </div>
                 </section>
 
-                <section className="bg-command-900 py-16 lg:py-24">
+                <section className="bg-white py-16 lg:py-24">
                     <div className="container-x max-w-4xl">
                         {post.demo && (
                             <Reveal className="mb-10 flex items-start gap-3 border border-blue-600/20 bg-blue-600/5 p-4">
                                 <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" aria-hidden="true" />
-                                <p className="text-xs leading-relaxed text-slate-400">
+                                <p className="text-xs leading-relaxed text-slate-600">
                                     This is a placeholder demo article for preview purposes and is not an official MITS publication.
                                 </p>
                             </Reveal>
                         )}
-                        <div className="relative mb-12 flex h-56 items-end overflow-hidden bg-command-950 p-8 sm:h-72">
-                            <div className="glow-drift absolute -left-12 -top-12 h-64 w-64 rounded-full bg-cobalt/25 blur-3xl" aria-hidden="true" />
+                        <div className="relative mb-12 flex h-56 items-end overflow-hidden bg-navy-900 p-8 sm:h-72">
+                            <div className="glow-drift absolute -left-12 -top-12 h-64 w-64 rounded-full bg-cyan-500/25 blur-3xl" aria-hidden="true" />
                             <div className="glow-drift absolute -bottom-16 -right-10 h-60 w-60 rounded-full bg-blue-600/25 blur-3xl" style={{ animationDelay: "4s" }} aria-hidden="true" />
                         </div>
                         <div className="space-y-6">
-                            <p className="font-display text-xl font-medium leading-relaxed text-slate-200">{post.excerpt}</p>
+                            <p className="font-display text-xl font-medium leading-relaxed text-navy-800">{post.excerpt}</p>
                             {post.body.map((para, i) => (
-                                <p key={i} className="text-base leading-relaxed text-slate-400">{para}</p>
+                                <p key={i} className="text-base leading-relaxed text-slate-600">{para}</p>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                <section className="bg-command-950 py-20 lg:py-28">
+                <section className="bg-slate-50 py-20 lg:py-28">
                     <div className="container-x">
                         <Reveal>
                             <p className="overline">Keep Reading</p>
-                            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-100">Related Articles</h2>
+                            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900">Related Articles</h2>
                         </Reveal>
                         <Stagger className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
                             {relatedFinal.map((p, i) => (
